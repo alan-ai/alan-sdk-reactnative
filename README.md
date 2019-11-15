@@ -77,7 +77,7 @@ That's it! Now you are ready to interact with Alan!
 
 ## Documentation
   
-The full API documentation available [here](https://alan.app/docs/integrations/web.html).
+The full API documentation available [here](https://alan.app/docs/intro.html).
 
 [Learn more](https://alan.app/docs/build-test/script-concepts.html) about Voice Script Concepts
 
