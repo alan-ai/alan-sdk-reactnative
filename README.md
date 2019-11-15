@@ -1,17 +1,24 @@
-# Alan SDK React Native component
+# Alan SDK React Native
 
-### How to install
+[Alan Platform](https://alan.app/) • [Alan Studio](https://studio.alan.app/register) • [Docs](https://alan.app/docs/intro.html) • [FAQ](https://alan.app/docs/additional/faq.html) •
+[Blog](https://alan.app/blog/) • [Twitter](https://twitter.com/alanvoiceai)
 
-#### 1. Run `npm i react-native-alan-sdk`
+A React Native component for adding a voice experience to your application.
 
-#### 2. in your `App.js` import Alan dependencies
+Create a voice script for your application in [Alan Studio](https://studio.alan.app/register) and then add it to your app.
+
+## Getting started
+
+1. Install `npm i react-native-alan-sdk` using [npm](https://www.npmjs.com/package/react-native-alan-sdk).
+
+2. Import Alan dependency  in your `App.js`
 
 ```javascript 
 import AlanButton from './AlanButton.js';
 import AlanText from './AlanText.js';
 ```
 
-#### 3. Add Alan view component
+3. Add Alan view component
 
 ```xml
  <View style={styles.bottomView}>
@@ -19,13 +26,13 @@ import AlanText from './AlanText.js';
           <AlanButton
             style={styles.buttonView}
             projectid={
-              '<YOUR_PROJECT_ID_FROMALAN_STUDIO>'
+              '<YOUR_PROJECT_ID_FROM_ALAN_STUDIO>'
             }
           />
  </View>
 ```
 
-#### 4. Add styles to views
+4. Add styles to views
 
 ```javascript
 const styles = StyleSheet.create({
@@ -65,14 +72,16 @@ const styles = StyleSheet.create({
   },
 });
 ```
-#### 5. You are now ready to interact with Alan!
-See more on Alan [homepage](https://alan.app/)
+
+That's it! Now you are ready to interact with Alan!
+
+## Documentation
+  
+The full API documentation available [here](https://alan.app/docs/integrations/web.html).
+
+[Learn more](https://alan.app/docs/build-test/script-concepts.html) about Voice Script Concepts
 
 
-### Other platforms:
-* [Native Android](https://github.com/alan-ai/alan-sdk-android)
-* [Native iOS](https://github.com/alan-ai/alan-sdk-ios)
-* [Web](https://github.com/alan-ai/alan-sdk-web)
-* [Cordova](https://github.com/alan-ai/alan-sdk-cordova)
-* [Flutter](https://pub.dev/packages/alan_voice)
+## Have questions?
 
+If you have any questions or if something is missing in the documentation, please [contact us](mailto:support@alan.app), or tweet us [@alanvoiceai](https://twitter.com/alanvoiceai). We love hearing from you!).
