@@ -9,7 +9,7 @@ Create a voice script for your application in [Alan Studio](https://studio.alan.
 
 ## Getting started
 
-1. Install `npm i react-native-alan-sdk --save` using [npm](https://www.npmjs.com/package/react-native-alan-sdk).
+1. Install `npm i alan-sdk-react-native` using [npm](https://www.npmjs.com/package/alan-sdk-react-native).
 
 2. Import Alan dependency  in your `App.js`
 
