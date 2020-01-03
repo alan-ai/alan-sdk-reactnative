@@ -2,16 +2,16 @@
 
 ### How to install
 
-####1. Run `npm i react-native-alan-sdk`
+#### 1. Run `npm i @alan-ai/alan-sdk-react-native`
 
-####2. in your `App.js` import Alan dependencies
+#### 2. in your `App.js` import Alan dependencies
 
 ```javascript 
 import AlanButton from './AlanButton.js';
 import AlanText from './AlanText.js';
 ```
 
-####3. Add Alan view component
+#### 3. Add Alan view component
 
 ```xml
  <View style={styles.bottomView}>
@@ -25,7 +25,7 @@ import AlanText from './AlanText.js';
  </View>
 ```
 
-####4. Add styles to views
+#### 4. Add styles to views
 
 ```javascript
 const styles = StyleSheet.create({
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
-#####5. You are now ready to interact with Alan!
+##### 5. You are now ready to interact with Alan!
 See more on Alan [homepage](https://alan.app/)
 
 
