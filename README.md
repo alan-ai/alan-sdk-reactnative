@@ -3,11 +3,9 @@
 [Alan Platform](https://alan.app/) • [Alan Studio](https://studio.alan.app/register) • [Docs](https://alan.app/docs/intro.html) • [FAQ](https://alan.app/docs/additional/faq.html) •
 [Blog](https://alan.app/blog/) • [Twitter](https://twitter.com/alanvoiceai)
 
-A React Native component for adding a voice experience to your application.
+Add a voice assistant to your application. With no or minimal changes to the existing UI.
 
-Create a voice script for your application in [Alan Studio](https://studio.alan.app/register) and then add it to your app.
-
-## Getting started
+## How to start:
 
 1. Install `npm i @alan-ai/alan-sdk-react-native` using [npm](https://www.npmjs.com/package/alan-sdk-react-native).
 
@@ -75,12 +73,7 @@ const styles = StyleSheet.create({
 
 That's it! Now you are ready to interact with Alan!
 
-## Documentation
-  
-The full API documentation available [here](https://alan.app/docs/intro.html).
-
-[Learn more](https://alan.app/docs/build-test/script-concepts.html) about Voice Script Concepts
-
 ## Have questions?
 
-If you have any questions or if something is missing in the documentation, please [contact us](mailto:support@alan.app), or tweet us [@alanvoiceai](https://twitter.com/alanvoiceai). We love hearing from you!).
+If you have any questions or if something is missing in the documentation, please [contact us](mailto:support@alan.app), or tweet us [@alanvoiceai](https://twitter.com/alanvoiceai). We love hearing from you!)
+
