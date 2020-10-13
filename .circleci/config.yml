@@ -1,12 +1,23 @@
 version: 2.1
 
+jobs:
+  checkout_code:
+    executor: rn/linux_js
+    steps:
+      - checkout
+      - persist_to_workspace:
+          paths: .
+          root: .
+
 orbs:
   rn: react-native-community/react-native@4.4.2
 
 workflows:
   test:
     jobs:
+      - checkout_code
       - rn/android_build:
           project_path: ./testapp/android
           build_type: release
-
+          requires:
+            - checkout_code
