@@ -9,3 +9,4 @@ workflows:
       - rn/android_build:
           project_path: ./testapp/android
           build_type: release
+
