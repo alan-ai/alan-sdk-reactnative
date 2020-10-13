@@ -34,7 +34,7 @@ workflows:
       - analyse_js:
           requires:
             - checkout_code
-      - build_app
+      - build_app:
           requires:
             - analyse_js
       # - rn/android_build:
