@@ -7,8 +7,8 @@ jobs:
       - attach_workspace:
           at: ./testapp
       - run:
-        command: yarn install
-        working_directory: ./testapp
+          command: yarn install
+          working_directory: ./testapp
 
   checkout_code:
     executor: rn/linux_js
