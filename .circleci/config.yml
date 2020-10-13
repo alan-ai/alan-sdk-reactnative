@@ -18,7 +18,7 @@ jobs:
           paths: .
           root: .
   build_app:
-    executor: rn/linux_js
+    executor: android/android
     steps:
       - checkout
       - run:
@@ -31,6 +31,7 @@ jobs:
 
 orbs:
   rn: react-native-community/react-native@4.4.2
+  android: circleci/android@0.2.1
 
 workflows:
   test:
