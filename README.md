@@ -1,7 +1,6 @@
 # Alan SDK React Native
 
-[![CircleCI](https://circleci.com/gh/alan-ai/alan-sdk-reactnative
-.svg?style=svg&circle-token=60342b40018cba51719cdf0895752359e716b832)](https://alan.app)
+[![CircleCI](https://circleci.com/gh/alan-ai/alan-sdk-reactnative.svg?style=svg&circle-token=d4cd551ebab8cae63e188d979bf210e3f948f8a0)](https://alan.app/docs)
 
 [Alan Platform](https://alan.app/) • [Alan Studio](https://studio.alan.app/register) • [Docs](https://alan.app/docs) • [FAQ](https://alan.app/docs/additional/faq.html) •
 [Blog](https://alan.app/blog/) • [Twitter](https://twitter.com/alanvoiceai)
