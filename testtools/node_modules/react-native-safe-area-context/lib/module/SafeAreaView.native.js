@@ -1,2 +1,3 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.SafeAreaView=void 0;var _reactNative=require("react-native");var SafeAreaView=(0,_reactNative.requireNativeComponent)('RNCSafeAreaView');exports.SafeAreaView=SafeAreaView;
+import { requireNativeComponent } from 'react-native';
+export const SafeAreaView = requireNativeComponent('RNCSafeAreaView');
 //# sourceMappingURL=SafeAreaView.native.js.map

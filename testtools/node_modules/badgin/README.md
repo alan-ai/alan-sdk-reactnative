@@ -1,6 +1,6 @@
 # Badgin
 
-The [Badging API](https://web.dev/badging-api/) is a new web platform API that allows installed web apps to set an application-wide badge, shown in an operating-system-specific place associated with the application (such as the shelf or home screen). Starting in Chrome 73, the Badging API is available as an origin trial for Windows (7+) and macOS. If you want to know how origin trials work, please check the[documentation](https://web.dev/badging-api/#ot). Since this API is not available everywhere, `badgin` safely falls back to alternatives.
+The [Badging API](https://web.dev/badging-api/) is a new web platform API that allows installed web apps to set an application-wide badge, shown in an operating-system-specific place associated with the application (such as the shelf or home screen). Starting in Chrome 73, the Badging API is available as an origin trial for Windows (7+) and macOS. If you want to know how origin trials work, please check the [documentation](https://web.dev/badging-api/#ot). Since this API is not available everywhere, `badgin` safely falls back to alternatives.
 
 ## via badge
 

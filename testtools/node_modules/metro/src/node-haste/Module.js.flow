@@ -13,7 +13,6 @@
 const isAbsolutePath = require('absolute-path');
 
 import type ModuleCache from './ModuleCache';
-import type Package from './Package';
 
 class Module {
   path: string;
@@ -30,7 +29,7 @@ class Module {
     this._moduleCache = moduleCache;
   }
 
-  getPackage(): ?Package {
+  getPackage() {
     return this._moduleCache.getPackageForModule(this);
   }
 

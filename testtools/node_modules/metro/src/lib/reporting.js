@@ -11,8 +11,6 @@
 
 const chalk = require("chalk");
 
-const stripAnsi = require("strip-ansi");
-
 const util = require("util");
 
 const _require = require("metro-core"),
@@ -20,7 +18,7 @@ const _require = require("metro-core"),
 
 /**
  * A standard way to log a warning to the terminal. This should not be called
- * from some arbitrary Metro logic, only from the reporters. Instead of
+ * from some arbitrary Metro Bundler logic, only from the reporters. Instead of
  * calling this, add a new type of ReportableEvent instead, and implement a
  * proper handler in the reporter(s).
  */
@@ -53,17 +51,8 @@ function logError(terminal, format) {
     args[_key2 - 2] = arguments[_key2];
   }
 
-  terminal.log(
-    "%s: %s",
-    chalk.red("error"), // Syntax errors may have colors applied for displaying code frames
-    // in various places outside of where Metro is currently running.
-    // If the current terminal does not support color, we'll strip the colors
-    // here.
-    util.format.apply(
-      util,
-      [chalk.supportsColor ? format : stripAnsi(format)].concat(args)
-    )
-  );
+  const str = util.format.apply(util, [format].concat(args));
+  terminal.log("%s: %s", chalk.red("error"), str);
 }
 /**
  * A reporter that does nothing. Errors and warnings will be swallowed, that

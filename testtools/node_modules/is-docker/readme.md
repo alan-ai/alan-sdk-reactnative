@@ -1,14 +1,12 @@
-# is-docker [![Build Status](https://travis-ci.org/sindresorhus/is-docker.svg?branch=master)](https://travis-ci.org/sindresorhus/is-docker)
+# is-docker [![Build Status](https://travis-ci.com/sindresorhus/is-docker.svg?branch=master)](https://travis-ci.com/github/sindresorhus/is-docker)
 
 > Check if the process is running inside a Docker container
-
 
 ## Install
 
 ```
 $ npm install is-docker
 ```
-
 
 ## Usage
 
@@ -20,7 +18,10 @@ if (isDocker()) {
 }
 ```
 
+## CLI
 
-## License
+```
+$ is-docker
+```
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+Exits with code 0 if inside a Docker container and 2 if not.

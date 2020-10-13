@@ -1,3 +1,3 @@
 /// <reference types="react" />
-declare const _default: (props: import("@react-navigation/stack").StackScreenProps<import("../types/Navigation").Routes, "Settings">) => JSX.Element;
-export default _default;
+import { ScreenProps } from '../types/Navigation';
+export default function ReactNavigationSettingsScreen({ navigation, }: ScreenProps<'Settings'>): JSX.Element;

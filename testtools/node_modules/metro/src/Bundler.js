@@ -46,8 +46,8 @@ const DependencyGraph = require("./node-haste/DependencyGraph");
 const Transformer = require("./DeltaBundler/Transformer");
 
 class Bundler {
-  constructor(config, options) {
-    this._depGraphPromise = DependencyGraph.load(config, options);
+  constructor(config) {
+    this._depGraphPromise = DependencyGraph.load(config);
 
     this._depGraphPromise
       .then(dependencyGraph => {

@@ -45,10 +45,6 @@ export type GraphRevision = {|
   +prepend: $ReadOnlyArray<Module<>>,
 |};
 
-export type IncrementalBundlerOptions = $ReadOnly<{|
-  watch?: boolean,
-|}>;
-
 function createRevisionId(): RevisionId {
   return crypto.randomBytes(8).toString('hex');
 }
@@ -64,13 +60,11 @@ class IncrementalBundler {
   _revisionsById: Map<RevisionId, Promise<GraphRevision>> = new Map();
   _revisionsByGraphId: Map<GraphId, Promise<GraphRevision>> = new Map();
 
-  static revisionIdFromString: (
-    str: string,
-  ) => RevisionId = revisionIdFromString;
+  static revisionIdFromString = revisionIdFromString;
 
-  constructor(config: ConfigT, options?: IncrementalBundlerOptions) {
+  constructor(config: ConfigT) {
     this._config = config;
-    this._bundler = new Bundler(config, options);
+    this._bundler = new Bundler(config);
     this._deltaBundler = new DeltaBundler(this._bundler);
   }
 
@@ -199,11 +193,7 @@ class IncrementalBundler {
       onProgress: null,
       shallow: false,
     },
-  ): Promise<{
-    delta: DeltaResult<>,
-    revision: GraphRevision,
-    ...
-  }> {
+  ): Promise<{delta: DeltaResult<>, revision: GraphRevision}> {
     const graphId = getGraphId(entryFile, transformOptions, {
       shallow: otherOptions.shallow,
       experimentalImportBundleSupport: this._config.transformer
@@ -251,11 +241,7 @@ class IncrementalBundler {
   async updateGraph(
     revision: GraphRevision,
     reset: boolean,
-  ): Promise<{
-    delta: DeltaResult<>,
-    revision: GraphRevision,
-    ...
-  }> {
+  ): Promise<{delta: DeltaResult<>, revision: GraphRevision}> {
     const delta = await this._deltaBundler.getDelta(revision.graph, {
       reset,
       shallow: false,

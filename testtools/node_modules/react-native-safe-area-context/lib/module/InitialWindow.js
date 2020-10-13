@@ -1,2 +1,7 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.initialWindowSafeAreaInsets=exports.initialWindowMetrics=void 0;var initialWindowMetrics=null;exports.initialWindowMetrics=initialWindowMetrics;var initialWindowSafeAreaInsets=null;exports.initialWindowSafeAreaInsets=initialWindowSafeAreaInsets;
+export const initialWindowMetrics = null;
+/**
+ * @deprecated
+ */
+
+export const initialWindowSafeAreaInsets = null;
 //# sourceMappingURL=InitialWindow.js.map

@@ -437,6 +437,9 @@ if (__DEV__) {
     }
 
     const Refresh = metroRequire.Refresh;
+    const pendingModuleIDs = [id];
+    const updatedModuleIDs = [];
+    const seenModuleIDs = new Set();
     const refreshBoundaryIDs = new Set(); // In this loop, we will traverse the dependency tree upwards from the
     // changed module. Updates "bubble" up to the closest accepted parent.
     //
@@ -447,24 +450,22 @@ if (__DEV__) {
     // a hot update. It is only safe when the update was accepted somewhere
     // along the way upwards for each of its parent dependency module chains.
     //
-    // We perform a topological sort because we may discover the same
-    // module more than once in the list of things to re-execute, and
-    // we want to execute modules before modules that depend on them.
-    //
     // If we didn't have this check, we'd risk re-evaluating modules that
     // have side effects and lead to confusing and meaningless crashes.
 
-    let didBailOut = false;
-    const updatedModuleIDs = topologicalSort(
-      [id], // Start with the changed module and go upwards
-      pendingID => {
-        const pendingModule = modules[pendingID];
+    while (pendingModuleIDs.length > 0) {
+      const pendingID = pendingModuleIDs.pop(); // Don't process twice if we have a cycle.
 
-        if (pendingModule == null) {
-          // Nothing to do.
-          return [];
-        }
+      if (seenModuleIDs.has(pendingID)) {
+        continue;
+      }
 
+      seenModuleIDs.add(pendingID); // If the module accepts itself, no need to bubble.
+      // We can stop worrying about this module chain and pick the next one.
+
+      const pendingModule = modules[pendingID];
+
+      if (pendingModule != null) {
         const pendingHot = pendingModule.hot;
 
         if (pendingHot == null) {
@@ -489,36 +490,28 @@ if (__DEV__) {
         }
 
         if (canAccept) {
-          // Don't look at parents.
-          return [];
-        } // If we bubble through the roof, there is no way to do a hot update.
-        // Bail out altogether. This is the failure case.
+          updatedModuleIDs.push(pendingID);
+          continue;
+        }
+      } // If we bubble through the roof, there is no way to do a hot update.
+      // Bail out altogether. This is the failure case.
 
-        const parentIDs = inverseDependencies[pendingID];
+      const parentIDs = inverseDependencies[pendingID];
 
-        if (parentIDs.length === 0) {
-          // Reload the app because the hot reload can't succeed.
-          // This should work both on web and React Native.
-          performFullRefresh("No root boundary", {
-            source: mod,
-            failed: pendingModule
-          });
-          didBailOut = true;
-          return [];
-        } // This module can't handle the update but maybe all its parents can?
-        // Put them all in the queue to run the same set of checks.
+      if (parentIDs.length === 0) {
+        // Reload the app because the hot reload can't succeed.
+        // This should work both on web and React Native.
+        performFullRefresh();
+        return;
+      } // This module didn't accept but maybe all its parents did?
+      // Put them all in the queue to run the same set of checks.
 
-        return parentIDs;
-      },
-      () => didBailOut // Should we stop?
-    ).reverse();
-
-    if (didBailOut) {
-      return;
+      updatedModuleIDs.push(pendingID);
+      parentIDs.forEach(parentID => pendingModuleIDs.push(parentID));
     } // If we reached here, it is likely that hot reload will be successful.
     // Run the actual factories.
 
-    const seenModuleIDs = new Set();
+    seenModuleIDs.clear();
 
     for (let i = 0; i < updatedModuleIDs.length; i++) {
       // Don't process twice if we have a cycle.
@@ -529,19 +522,19 @@ if (__DEV__) {
       }
 
       seenModuleIDs.add(updatedID);
-      const updatedMod = modules[updatedID];
+      const mod = modules[updatedID];
 
-      if (updatedMod == null) {
+      if (mod == null) {
         throw new Error("[Refresh] Expected to find the updated module.");
       }
 
-      const prevExports = updatedMod.publicModule.exports;
+      const prevExports = mod.publicModule.exports;
       const didError = runUpdatedModule(
         updatedID,
         updatedID === id ? factory : undefined,
         updatedID === id ? dependencyMap : undefined
       );
-      const nextExports = updatedMod.publicModule.exports;
+      const nextExports = mod.publicModule.exports;
 
       if (didError) {
         // The user was shown a redbox about module initialization.
@@ -576,15 +569,7 @@ if (__DEV__) {
 
           if (parentIDs.length === 0) {
             // Looks like we bubbled to the root. Can't recover from that.
-            performFullRefresh(
-              isNoLongerABoundary
-                ? "No longer a boundary"
-                : "Invalidated boundary",
-              {
-                source: mod,
-                failed: updatedMod
-              }
-            );
+            performFullRefresh();
             return;
           } // Schedule all parent refresh boundaries to re-run in this loop.
 
@@ -606,10 +591,7 @@ if (__DEV__) {
               refreshBoundaryIDs.add(parentID);
               updatedModuleIDs.push(parentID);
             } else {
-              performFullRefresh("Invalidated boundary", {
-                source: mod,
-                failed: parentMod
-              });
+              performFullRefresh();
               return;
             }
           }
@@ -628,36 +610,6 @@ if (__DEV__) {
         }, 30);
       }
     }
-  };
-
-  const topologicalSort = function(roots, getEdges, earlyStop) {
-    const result = [];
-    const visited = new Set();
-
-    function traverseDependentNodes(node) {
-      visited.add(node);
-      const dependentNodes = getEdges(node);
-
-      if (earlyStop(node)) {
-        return;
-      }
-
-      dependentNodes.forEach(dependent => {
-        if (visited.has(dependent)) {
-          return;
-        }
-
-        traverseDependentNodes(dependent);
-      });
-      result.push(node);
-    }
-
-    roots.forEach(root => {
-      if (!visited.has(root)) {
-        traverseDependentNodes(root);
-      }
-    });
-    return result;
   };
 
   const runUpdatedModule = function(id, factory, dependencyMap) {
@@ -733,7 +685,7 @@ if (__DEV__) {
     return false;
   };
 
-  const performFullRefresh = (reason, modules) => {
+  const performFullRefresh = () => {
     /* global window */
     if (
       typeof window !== "undefined" &&
@@ -746,27 +698,7 @@ if (__DEV__) {
       const Refresh = metroRequire.Refresh;
 
       if (Refresh != null) {
-        var _ref2, _modules$source, _ref3, _modules$failed;
-
-        const sourceName =
-          (_ref2 =
-            (_modules$source = modules.source) === null ||
-            _modules$source === void 0
-              ? void 0
-              : _modules$source.verboseName) !== null && _ref2 !== void 0
-            ? _ref2
-            : "unknown";
-        const failedName =
-          (_ref3 =
-            (_modules$failed = modules.failed) === null ||
-            _modules$failed === void 0
-              ? void 0
-              : _modules$failed.verboseName) !== null && _ref3 !== void 0
-            ? _ref3
-            : "unknown";
-        Refresh.performFullRefresh(
-          `Fast Refresh - ${reason} <${sourceName}> <${failedName}>`
-        );
+        Refresh.performFullRefresh();
       } else {
         console.warn("Could not reload the application after an edit.");
       }

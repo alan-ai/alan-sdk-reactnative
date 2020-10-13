@@ -1,4 +1,19 @@
-4.0.4 / 2017-12-21
+4.1.1 / 2020-09-11
+==================
+  * [Fix] avoid mutating `Object.assign` in modern engines
+  * [Refactor] use `callBind` from `es-abstract` instead of `function-bind`
+  * [Deps] update `has-symbols`, `object-keys`, `define-properties`
+  * [meta] add `funding` field, FUNDING.yml
+  * [Dev Deps] update `eslint`, `@ljharb/eslint-config`, `@es-shims/api`, `browserify`, `covert`, `for-each`, `is`, `tape`, `functions-have-names`; add `aud`, `safe-publish-latest`; remove `jscs`
+  * [actions] add Require Allow Edits workflow
+  * [actions] add automatic rebasing / merge commit blocking
+  * [Tests] ses-compat - add test to ensure package initializes correctly after ses lockdown (#77)
+  * [Tests] Add passing test for a source of `window.location` (#68)
+  * [Tests] use shared travis-ci config
+  * [Tests] use `npx aud` instead of `npm audit` with hoops or `nsp`
+  * [Tests] use `functions-have-names`
+
+4.1.0 / 2017-12-21
 ==================
   * [New] add `auto` entry point (#52)
   * [Refactor] Use `has-symbols` module

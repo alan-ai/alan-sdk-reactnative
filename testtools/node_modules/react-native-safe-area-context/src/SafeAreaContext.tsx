@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { Dimensions, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import NativeSafeAreaProvider from './NativeSafeAreaProvider';
 import { EdgeInsets, InsetChangedEvent, Metrics, Rect } from './SafeArea.types';
 
@@ -16,12 +16,14 @@ export interface SafeAreaViewProps {
    * @deprecated
    */
   initialSafeAreaInsets?: EdgeInsets | null;
+  style?: StyleProp<ViewStyle>;
 }
 
 export function SafeAreaProvider({
   children,
   initialMetrics,
   initialSafeAreaInsets,
+  style,
 }: SafeAreaViewProps) {
   const parentInsets = useParentSafeAreaInsets();
   const parentFrame = useParentSafeAreaFrame();
@@ -38,16 +40,41 @@ export function SafeAreaProvider({
         height: Dimensions.get('window').height,
       },
   );
-  const onInsetsChange = React.useCallback((event: InsetChangedEvent) => {
-    // Backwards compat with old native code that won't send frame.
-    if (event.nativeEvent.frame != null) {
-      setFrame(event.nativeEvent.frame);
-    }
-    setInsets(event.nativeEvent.insets);
-  }, []);
+  const onInsetsChange = React.useCallback(
+    (event: InsetChangedEvent) => {
+      const {
+        nativeEvent: { frame: nextFrame, insets: nextInsets },
+      } = event;
+
+      if (
+        // Backwards compat with old native code that won't send frame.
+        nextFrame &&
+        (nextFrame.height !== frame.height ||
+          nextFrame.width !== frame.width ||
+          nextFrame.x !== frame.x ||
+          nextFrame.y !== frame.y)
+      ) {
+        setFrame(nextFrame);
+      }
+
+      if (
+        !insets ||
+        nextInsets.bottom !== insets.bottom ||
+        nextInsets.left !== insets.left ||
+        nextInsets.right !== insets.right ||
+        nextInsets.top !== insets.top
+      ) {
+        setInsets(nextInsets);
+      }
+    },
+    [frame, insets],
+  );
 
   return (
-    <NativeSafeAreaProvider style={styles.fill} onInsetsChange={onInsetsChange}>
+    <NativeSafeAreaProvider
+      style={[styles.fill, style]}
+      onInsetsChange={onInsetsChange}
+    >
       {insets != null ? (
         <SafeAreaFrameContext.Provider value={frame}>
           <SafeAreaInsetsContext.Provider value={insets}>
@@ -94,11 +121,11 @@ export function useSafeAreaFrame(): Rect {
 export function withSafeAreaInsets<T>(
   WrappedComponent: React.ComponentType<T>,
 ) {
-  return (props: T) => (
+  return React.forwardRef((props: T, ref: React.Ref<T>) => (
     <SafeAreaConsumer>
-      {(insets) => <WrappedComponent {...props} insets={insets} />}
+      {(insets) => <WrappedComponent {...props} insets={insets} ref={ref} />}
     </SafeAreaConsumer>
-  );
+  ));
 }
 
 /**

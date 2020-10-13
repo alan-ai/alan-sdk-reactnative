@@ -40,19 +40,20 @@ function _asyncToGenerator(fn) {
   };
 }
 
-const Server = require("../Server");
-
 const denodeify = require("denodeify");
 
 const fs = require("fs");
 
 const path = require("path");
 
-const _require = require("../cli-utils"),
-  makeAsyncCommand = _require.makeAsyncCommand;
+const _require = require("metro-config"),
+  loadConfig = _require.loadConfig;
 
-const _require2 = require("metro-config"),
-  loadConfig = _require2.loadConfig;
+const _require2 = require("../legacy"),
+  getOrderedDependencyPaths = _require2.getOrderedDependencyPaths;
+
+const _require3 = require("../cli-utils"),
+  makeAsyncCommand = _require3.makeAsyncCommand;
 
 function dependencies(_x, _x2) {
   return _dependencies.apply(this, arguments);
@@ -84,8 +85,7 @@ function _dependencies() {
     const outStream = writeToFile
       ? fs.createWriteStream(args.output)
       : process.stdout;
-    const server = new Server(config);
-    const deps = yield server.getOrderedDependencyPaths(options);
+    const deps = yield getOrderedDependencyPaths(config, options);
     deps.forEach(modulePath => {
       // Temporary hack to disable listing dependencies not under this directory.
       // Long term, we need either
@@ -99,7 +99,6 @@ function _dependencies() {
         outStream.write(modulePath + "\n");
       }
     });
-    server.end();
     return writeToFile
       ? denodeify(outStream.end).bind(outStream)()
       : Promise.resolve();

@@ -144,7 +144,7 @@ declare module 'node-stream-zip' {
 
         openEntry(entry: string, callback: (err: any | null, entry?: ZipEntry) => void, sync: boolean): void
 
-        extract(entry: string, outPath: string, callback: (err?: any) => void): void
+        extract(entry: string | null, outPath: string, callback: (err?: any) => void): void
 
         close(callback?: (err?: any) => void): void
     }

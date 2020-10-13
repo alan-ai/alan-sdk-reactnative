@@ -11,68 +11,75 @@
 'use strict';
 const IncrementalBundler = require('./IncrementalBundler');
 const MultipartResponse = require('./Server/MultipartResponse');
-const ResourceNotFoundError = require('./IncrementalBundler/ResourceNotFoundError');
 
 const baseJSBundle = require('./DeltaBundler/Serializers/baseJSBundle');
-const bundleToString = require('./lib/bundleToString');
-
-const {codeFrameColumns} = require('@babel/code-frame');
-const debug = require('debug')('Metro:Server');
-const formatBundlingError = require('./lib/formatBundlingError');
-const fs = require('graceful-fs');
+const bundleToString = require('./lib/bundle-modules/DeltaClient/bundleToString');
+const deltaJSBundle = require('./DeltaBundler/Serializers/deltaJSBundle');
 const getAllFiles = require('./DeltaBundler/Serializers/getAllFiles');
 const getAssets = require('./DeltaBundler/Serializers/getAssets');
 const getGraphId = require('./lib/getGraphId');
 const getRamBundleInfo = require('./DeltaBundler/Serializers/getRamBundleInfo');
-const mime = require('mime-types');
-const parseOptionsFromUrl = require('./lib/parseOptionsFromUrl');
-const parsePlatformFilePath = require('./node-haste/lib/parsePlatformFilePath');
-const path = require('path');
 const sourceMapString = require('./DeltaBundler/Serializers/sourceMapString');
 const splitBundleOptions = require('./lib/splitBundleOptions');
-const symbolicate = require('./Server/symbolicate');
+const debug = require('debug')('Metro:Server');
+const formatBundlingError = require('./lib/formatBundlingError');
+const mime = require('mime-types');
+const parseOptionsFromUrl = require('./lib/parseOptionsFromUrl');
 const transformHelpers = require('./lib/transformHelpers');
+const parsePlatformFilePath = require('./node-haste/lib/parsePlatformFilePath');
+const path = require('path');
+const serializeDeltaJSBundle = require('./DeltaBundler/Serializers/helpers/serializeDeltaJSBundle');
+const symbolicate = require('./Server/symbolicate');
 const url = require('url');
+const ResourceNotFoundError = require('./IncrementalBundler/ResourceNotFoundError');
+const RevisionNotFoundError = require('./IncrementalBundler/RevisionNotFoundError');
 
 const {getAsset} = require('./Assets');
 const {
   getExplodedSourceMap,
 } = require('./DeltaBundler/Serializers/getExplodedSourceMap');
-const {
-  Logger,
-  Logger: {createActionStartEntry, createActionEndEntry, log},
-} = require('metro-core');
 
-import type {AssetData} from './Assets';
 import type {ExplodedSourceMap} from './DeltaBundler/Serializers/getExplodedSourceMap';
-import type {RamBundleInfo} from './DeltaBundler/Serializers/getRamBundleInfo';
-import type {Graph, Module} from './DeltaBundler/types.flow';
-import type {MixedOutput, TransformResult} from './DeltaBundler/types.flow';
-import type {RevisionId} from './IncrementalBundler';
-import type {GraphId} from './lib/getGraphId';
+import type {IncomingMessage, ServerResponse} from 'http';
 import type {Reporter} from './lib/reporting';
+import type {GraphId} from './lib/getGraphId';
+import type {RamBundleInfo} from './DeltaBundler/Serializers/getRamBundleInfo';
 import type {
   BundleOptions,
   GraphOptions,
   SplitBundleOptions,
 } from './shared/types.flow';
-import type {IncomingMessage, ServerResponse} from 'http';
+import type {
+  ConfigT,
+  VisualizerConfigT,
+} from 'metro-config/src/configTypes.flow';
+import type {AssetData} from './Assets';
+import type {RevisionId} from './IncrementalBundler';
+import type {Graph, Module} from './DeltaBundler/types.flow';
 import type {CacheStore} from 'metro-cache';
-import type {ConfigT} from 'metro-config/src/configTypes.flow';
+import type {BundleVariant} from './lib/bundle-modules/types.flow';
+import type DependencyGraph from './node-haste/DependencyGraph';
+import type {MixedOutput, TransformResult} from './DeltaBundler/types.flow';
+import type {StackFrameOutput} from './Server/symbolicate';
+
+const {
+  Logger,
+  Logger: {createActionStartEntry, createActionEndEntry, log},
+} = require('metro-core');
+
 import type {
   ActionLogEntryData,
   ActionStartLogEntry,
   LogEntry,
 } from 'metro-core/src/Logger';
 
-export type SegmentLoadData = {[number]: [Array<number>, ?number], ...};
+export type SegmentLoadData = {[number]: [Array<number>, ?number]};
 export type BundleMetadata = {
   hash: string,
   otaBuildNumber: ?string,
   mobileConfigs: Array<string>,
   segmentHashes: Array<string>,
   segmentLoadData: SegmentLoadData,
-  ...
 };
 
 type ProcessStartContext = {|
@@ -82,7 +89,7 @@ type ProcessStartContext = {|
   +graphOptions: GraphOptions,
   +mres: MultipartResponse,
   +req: IncomingMessage,
-  +revisionId?: ?RevisionId,
+  +revisionId: ?RevisionId,
   ...SplitBundleOptions,
 |};
 
@@ -91,15 +98,23 @@ type ProcessEndContext<T> = {|
   +result: T,
 |};
 
-export type ServerOptions = $ReadOnly<{|
-  watch?: boolean,
-|}>;
+function debounceAndBatch(fn: () => void, delay: number): () => void {
+  let timeout;
+  return () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(fn, delay);
+  };
+}
 
 const DELTA_ID_HEADER = 'X-Metro-Delta-ID';
 const FILES_CHANGED_COUNT_HEADER = 'X-Metro-Files-Changed-Count';
 
 class Server {
   _config: ConfigT;
+  _changeWatchers: Array<{
+    req: IncomingMessage,
+    res: ServerResponse,
+  }>;
   _createModuleId: (path: string) => number;
   _reporter: Reporter;
   _logger: typeof Logger;
@@ -108,7 +123,7 @@ class Server {
   _bundler: IncrementalBundler;
   _isEnded: boolean;
 
-  constructor(config: ConfigT, options?: ServerOptions) {
+  constructor(config: ConfigT) {
     this._config = config;
 
     if (this._config.resetCache) {
@@ -120,6 +135,7 @@ class Server {
 
     this._reporter = config.reporter;
     this._logger = Logger;
+    this._changeWatchers = [];
     this._platforms = new Set(this._config.resolver.platforms);
     this._isEnded = false;
 
@@ -128,9 +144,25 @@ class Server {
     // the HmrServer.
     // The whole bundling/serializing logic should follow as well.
     this._createModuleId = config.serializer.createModuleIdFactory();
-    this._bundler = new IncrementalBundler(config, {
-      watch: options ? options.watch : undefined,
-    });
+    this._bundler = new IncrementalBundler(config);
+
+    const debouncedFileChangeHandler = debounceAndBatch(
+      () => this._informChangeWatchers(),
+      50,
+    );
+
+    // changes to the haste map can affect resolution of files in the bundle
+    this._bundler
+      .getBundler()
+      .getDependencyGraph()
+      .then((dependencyGraph: DependencyGraph) => {
+        dependencyGraph.getWatcher().on('change', () => {
+          // Make sure the file watcher event runs through the system before
+          // we rebuild the bundles.
+          debouncedFileChangeHandler();
+        });
+      });
+
     this._nextBundleBuildID = 1;
   }
 
@@ -149,13 +181,7 @@ class Server {
     return this._createModuleId;
   }
 
-  async build(
-    options: BundleOptions,
-  ): Promise<{
-    code: string,
-    map: string,
-    ...
-  }> {
+  async build(options: BundleOptions): Promise<{code: string, map: string}> {
     const {
       entryFile,
       graphOptions,
@@ -175,7 +201,7 @@ class Server {
 
     const entryPoint = path.resolve(this._config.projectRoot, entryFile);
 
-    const bundleOptions = {
+    const bundle = baseJSBundle(entryPoint, prepend, graph, {
       asyncRequireModulePath: this._config.transformer.asyncRequireModulePath,
       processModuleFilter: this._config.serializer.processModuleFilter,
       createModuleId: this._createModuleId,
@@ -190,39 +216,14 @@ class Server {
       sourceMapUrl: serializerOptions.sourceMapUrl,
       sourceUrl: serializerOptions.sourceUrl,
       inlineSourceMap: serializerOptions.inlineSourceMap,
-    };
-    let bundleCode = null;
-    let bundleMap = null;
-    if (this._config.serializer.customSerializer) {
-      const bundle = this._config.serializer.customSerializer(
-        entryPoint,
-        prepend,
-        graph,
-        bundleOptions,
-      );
-      if (typeof bundle === 'string') {
-        bundleCode = bundle;
-      } else {
-        bundleCode = bundle.code;
-        bundleMap = bundle.map;
-      }
-    } else {
-      bundleCode = bundleToString(
-        baseJSBundle(entryPoint, prepend, graph, bundleOptions),
-      ).code;
-    }
-    if (!bundleMap) {
-      bundleMap = sourceMapString(
-        [...prepend, ...this._getSortedModules(graph)],
-        {
-          excludeSource: serializerOptions.excludeSource,
-          processModuleFilter: this._config.serializer.processModuleFilter,
-        },
-      );
-    }
+    });
+
     return {
-      code: bundleCode,
-      map: bundleMap,
+      code: bundleToString(bundle).code,
+      map: sourceMapString([...prepend, ...this._getSortedModules(graph)], {
+        excludeSource: serializerOptions.excludeSource,
+        processModuleFilter: this._config.serializer.processModuleFilter,
+      }),
     };
   }
 
@@ -289,13 +290,9 @@ class Server {
     +entryFile: string,
     +minify: boolean,
     +platform: string,
-    ...
   }): Promise<Array<string>> {
     const {entryFile, transformOptions, onProgress} = splitBundleOptions({
       ...Server.DEFAULT_BUNDLE_OPTIONS,
-      /* $FlowFixMe(>=0.111.0 site=react_native_fb) This comment suppresses an
-       * error found when Flow v0.111 was deployed. To see the error, delete
-       * this comment and run Flow. */
       ...options,
       bundleType: 'bundle',
     });
@@ -313,6 +310,38 @@ class Server {
     return await getAllFiles(prepend, graph, {
       platform,
       processModuleFilter: this._config.serializer.processModuleFilter,
+    });
+  }
+
+  _informChangeWatchers() {
+    const watchers = this._changeWatchers;
+    const headers = {
+      'Content-Type': 'application/json; charset=UTF-8',
+    };
+
+    watchers.forEach(function(w: {req: IncomingMessage, res: ServerResponse}) {
+      w.res.writeHead(205, headers);
+      w.res.end(JSON.stringify({changed: true}));
+    });
+
+    this._changeWatchers = [];
+  }
+
+  _processOnChangeRequest(req: IncomingMessage, res: ServerResponse) {
+    const watchers = this._changeWatchers;
+
+    watchers.push({
+      req,
+      res,
+    });
+
+    req.on('close', () => {
+      for (let i = 0; i < watchers.length; i++) {
+        if (watchers[i] && watchers[i].req === req) {
+          watchers.splice(i, 1);
+          break;
+        }
+      }
     });
   }
 
@@ -384,11 +413,7 @@ class Server {
     }
   }
 
-  processRequest: (
-    IncomingMessage,
-    ServerResponse,
-    (e: ?Error) => mixed,
-  ) => void = (
+  processRequest = (
     req: IncomingMessage,
     res: ServerResponse,
     next: (?Error) => mixed,
@@ -410,15 +435,19 @@ class Server {
     if (pathname.match(/\.bundle$/)) {
       await this._processBundleRequest(req, res);
     } else if (pathname.match(/\.map$/)) {
-      // Chrome dev tools may need to access the source maps.
-      res.setHeader('Access-Control-Allow-Origin', 'devtools://devtools');
       await this._processSourceMapRequest(req, res);
     } else if (pathname.match(/\.assets$/)) {
       await this._processAssetsRequest(req, res);
+    } else if (pathname.match(/\.delta$/)) {
+      await this._processDeltaRequest(req, res);
+    } else if (pathname.match(/\.meta/)) {
+      await this._processMetadataRequest(req, res);
+    } else if (pathname.match(/^\/onchange\/?$/)) {
+      this._processOnChangeRequest(req, res);
     } else if (pathname.match(/^\/assets\//)) {
       await this._processSingleAssetRequest(req, res);
     } else if (pathname === '/symbolicate') {
-      await this._symbolicate(req, res);
+      this._symbolicate(req, res);
     } else {
       next();
     }
@@ -442,7 +471,7 @@ class Server {
       res: ServerResponse,
     ): Promise<void> {
       const mres = MultipartResponse.wrap(req, res);
-      const bundleOptions = parseOptionsFromUrl(
+      const {revisionId, options: bundleOptions} = parseOptionsFromUrl(
         url.format({
           ...url.parse(req.url),
           protocol: 'http',
@@ -514,6 +543,7 @@ class Server {
         mres,
         onProgress,
         req,
+        revisionId,
         serializerOptions,
         transformOptions,
       };
@@ -532,13 +562,6 @@ class Server {
           'Content-Type': 'application/json; charset=UTF-8',
         });
         mres.end(JSON.stringify(formattedError));
-
-        this._reporter.update({
-          buildID,
-          type: 'bundle_build_failed',
-          bundleOptions,
-        });
-
         this._reporter.update({error, type: 'bundling_error'});
 
         log({
@@ -548,6 +571,12 @@ class Server {
           bundle_id: graphId,
           build_id: buildID,
           stack: formattedError.message,
+        });
+
+        this._reporter.update({
+          buildID,
+          type: 'bundle_build_failed',
+          bundleOptions,
         });
 
         return;
@@ -567,14 +596,119 @@ class Server {
       log(
         createActionEndEntry({
           ...logEntry,
-          /* $FlowFixMe(>=0.111.0 site=react_native_fb) This comment suppresses
-           * an error found when Flow v0.111 was deployed. To see the error,
-           * delete this comment and run Flow. */
           ...createEndEntry(endContext),
         }),
       );
     };
   }
+
+  _processDeltaRequest = this._createRequestProcessor({
+    createStartEntry(context: ProcessStartContext) {
+      return {
+        action_name: 'Requesting delta',
+        bundle_url: context.req.url,
+        entry_point: context.entryFile,
+        bundler: 'delta',
+        build_id: context.buildID,
+        bundle_options: context.bundleOptions,
+        bundle_hash: context.graphId,
+      };
+    },
+    createEndEntry(
+      context: ProcessEndContext<{|
+        bundle: BundleVariant,
+        nextRevId: RevisionId,
+        numModifiedFiles: number,
+      |}>,
+    ) {
+      return {
+        outdated_modules: context.result.numModifiedFiles,
+      };
+    },
+    build: async ({
+      entryFile,
+      graphId,
+      graphOptions,
+      onProgress,
+      revisionId,
+      serializerOptions,
+      transformOptions,
+    }) => {
+      // TODO(T34760593): We should eventually move to a model where this
+      // endpoint is placed at /delta/:revisionId, and requesting an unknown revisionId
+      // throws a 404.
+      // However, this would break existing delta clients, since they expect the
+      // endpoint to rebuild the graph, were it not found in cache.
+      let revPromise;
+      if (revisionId != null) {
+        revPromise = this._bundler.getRevision(revisionId);
+      }
+      // Even if we receive a revisionId, it might have expired.
+      if (revPromise == null) {
+        revPromise = this._bundler.getRevisionByGraphId(graphId);
+      }
+
+      let delta;
+      let revision;
+      if (revPromise != null) {
+        const prevRevision = await revPromise;
+
+        ({delta, revision} = await this._bundler.updateGraph(
+          prevRevision,
+          prevRevision.id !== revisionId,
+        ));
+      } else {
+        ({delta, revision} = await this._bundler.initializeGraph(
+          entryFile,
+          transformOptions,
+          {onProgress, shallow: graphOptions.shallow},
+        ));
+      }
+
+      const bundle = deltaJSBundle(
+        entryFile,
+        revision.prepend,
+        delta,
+        revision.id,
+        revision.graph,
+        {
+          asyncRequireModulePath: this._config.transformer
+            .asyncRequireModulePath,
+          processModuleFilter: this._config.serializer.processModuleFilter,
+          createModuleId: this._createModuleId,
+          dev: transformOptions.dev,
+          getRunModuleStatement: this._config.serializer.getRunModuleStatement,
+          projectRoot: this._config.projectRoot,
+          modulesOnly: serializerOptions.modulesOnly,
+          runBeforeMainModule: this._config.serializer.getModulesRunBeforeMainModule(
+            path.relative(this._config.projectRoot, entryFile),
+          ),
+          runModule: serializerOptions.runModule,
+          sourceMapUrl: serializerOptions.sourceMapUrl,
+          sourceUrl: serializerOptions.sourceUrl,
+          inlineSourceMap: serializerOptions.inlineSourceMap,
+        },
+      );
+
+      return {
+        numModifiedFiles:
+          delta.added.size + delta.modified.size + delta.deleted.size,
+        nextRevId: revision.id,
+        bundle,
+      };
+    },
+    finish({mres, result}) {
+      const bundle = serializeDeltaJSBundle.toJSON(result.bundle);
+      mres.setHeader(
+        FILES_CHANGED_COUNT_HEADER,
+        String(result.numModifiedFiles),
+      );
+      mres.setHeader(DELTA_ID_HEADER, String(result.nextRevId));
+      mres.setHeader('Content-Type', 'application/json');
+      mres.setHeader('Content-Length', String(Buffer.byteLength(bundle)));
+      mres.end(bundle);
+    },
+  });
 
   _processBundleRequest = this._createRequestProcessor({
     createStartEntry(context: ProcessStartContext) {
@@ -638,15 +772,13 @@ class Server {
         inlineSourceMap: serializerOptions.inlineSourceMap,
       });
 
-      const bundleCode = typeof bundle === 'string' ? bundle : bundle.code;
-
       return {
         numModifiedFiles: delta.reset
           ? delta.added.size + revision.prepend.length
           : delta.added.size + delta.modified.size + delta.deleted.size,
         lastModifiedDate: revision.date,
         nextRevId: revision.id,
-        bundle: bundleCode,
+        bundle,
       };
     },
     finish({req, mres, result}) {
@@ -680,13 +812,7 @@ class Server {
   // This function ensures that modules in source maps are sorted in the same
   // order as in a plain JS bundle.
   _getSortedModules(graph: Graph<>): $ReadOnlyArray<Module<>> {
-    const modules = [...graph.dependencies.values()];
-    // Assign IDs to modules in a consistent order
-    for (const module of modules) {
-      this._createModuleId(module.path);
-    }
-    // Sort by IDs
-    return modules.sort(
+    return [...graph.dependencies.values()].sort(
       (a: Module<MixedOutput>, b: Module<MixedOutput>) =>
         this._createModuleId(a.path) - this._createModuleId(b.path),
     );
@@ -742,6 +868,67 @@ class Server {
     },
   });
 
+  _processMetadataRequest = this._createRequestProcessor({
+    createStartEntry(context: ProcessStartContext) {
+      return {
+        action_name: 'Requesting bundle metadata',
+        bundle_url: context.req.url,
+        entry_point: context.entryFile,
+        bundler: 'delta',
+      };
+    },
+    createEndEntry(context: ProcessEndContext<BundleMetadata>) {
+      return {
+        bundler: 'delta',
+      };
+    },
+    build: async ({
+      entryFile,
+      transformOptions,
+      serializerOptions,
+      onProgress,
+      revisionId,
+    }) => {
+      if (revisionId == null) {
+        throw new Error(
+          'You must provide a `revisionId` query parameter to the metadata endpoint.',
+        );
+      }
+
+      let revision;
+      const revPromise = this._bundler.getRevision(revisionId);
+      if (revPromise == null) {
+        throw new RevisionNotFoundError(revisionId);
+      } else {
+        revision = await revPromise;
+      }
+
+      const base = baseJSBundle(entryFile, revision.prepend, revision.graph, {
+        asyncRequireModulePath: this._config.transformer.asyncRequireModulePath,
+        processModuleFilter: this._config.serializer.processModuleFilter,
+        createModuleId: this._createModuleId,
+        getRunModuleStatement: this._config.serializer.getRunModuleStatement,
+        dev: transformOptions.dev,
+        projectRoot: this._config.projectRoot,
+        modulesOnly: serializerOptions.modulesOnly,
+        runBeforeMainModule: this._config.serializer.getModulesRunBeforeMainModule(
+          path.relative(this._config.projectRoot, entryFile),
+        ),
+        runModule: serializerOptions.runModule,
+        sourceMapUrl: serializerOptions.sourceMapUrl,
+        sourceUrl: serializerOptions.sourceUrl,
+        inlineSourceMap: serializerOptions.inlineSourceMap,
+      });
+
+      // $FlowFixMe the return value of an async function is always a Promise
+      return bundleToString(base).metadata;
+    },
+    finish({mres, result}) {
+      mres.setHeader('Content-Type', 'application/json');
+      mres.end(JSON.stringify(result));
+    },
+  });
+
   _processAssetsRequest = this._createRequestProcessor({
     createStartEntry(context: ProcessStartContext) {
       return {
@@ -777,89 +964,65 @@ class Server {
     },
   });
 
-  async _symbolicate(req: IncomingMessage, res: ServerResponse) {
-    const getCodeFrame = (urls, symbolicatedStack) => {
-      for (let i = 0; i < symbolicatedStack.length; i++) {
-        const {collapse, column, file, lineNumber} = symbolicatedStack[i];
-        if (collapse || lineNumber == null || urls.has(file)) {
-          continue;
-        }
+  _symbolicate(req: IncomingMessage, res: ServerResponse) {
+    const symbolicatingLogEntry = log(createActionStartEntry('Symbolicating'));
 
-        return {
-          content: codeFrameColumns(
-            fs.readFileSync(file, 'utf8'),
-            {
-              // Metro returns 0 based columns but codeFrameColumns expects 1-based columns
-              start: {column: column + 1, line: lineNumber},
-            },
-            {forceColor: true},
-          ),
-          location: {
-            row: lineNumber,
-            column,
-          },
-          fileName: file,
-        };
-      }
+    debug('Start symbolication');
 
-      return null;
-    };
+    /* $FlowFixMe: where is `rowBody` defined? Is it added by
+     * the `connect` framework? */
+    Promise.resolve(req.rawBody)
+      .then((body: string) => {
+        const stack = JSON.parse(body).stack;
 
-    try {
-      const symbolicatingLogEntry = log(
-        createActionStartEntry('Symbolicating'),
+        // In case of multiple bundles / HMR, some stack frames can have
+        // different URLs from others
+        const urls = new Set();
+        stack.forEach(frame => {
+          const sourceUrl = frame.file;
+          // Skip `/debuggerWorker.js` which drives remote debugging because it
+          // does not need to symbolication.
+          // Skip anything except http(s), because there is no support for that yet
+          if (
+            sourceUrl != null &&
+            !urls.has(sourceUrl) &&
+            !sourceUrl.endsWith('/debuggerWorker.js') &&
+            sourceUrl.startsWith('http')
+          ) {
+            urls.add(sourceUrl);
+          }
+        });
+
+        const mapPromises = Array.from(urls.values()).map(
+          this._explodedSourceMapForURL,
+          this,
+        );
+
+        debug('Getting source maps for symbolication');
+        return Promise.all(mapPromises).then(maps => {
+          debug('Performing fast symbolication');
+          const urlsToMaps = zip(urls.values(), maps);
+          return symbolicate(stack, urlsToMaps, this._config);
+        });
+      })
+      .then(
+        (stack: $ReadOnlyArray<StackFrameOutput>) => {
+          debug('Symbolication done');
+          res.end(JSON.stringify({stack}));
+          process.nextTick(() => {
+            log(createActionEndEntry(symbolicatingLogEntry));
+          });
+        },
+        error => {
+          console.error(error.stack || error);
+          res.statusCode = 500;
+          res.end(JSON.stringify({error: error.message}));
+        },
       );
-      debug('Start symbolication');
-      /* $FlowFixMe: where is `rawBody` defined? Is it added by the `connect` framework? */
-      const body = await req.rawBody;
-      const stack = JSON.parse(body).stack;
-
-      // In case of multiple bundles / HMR, some stack frames can have different URLs from others
-      const urls = new Set();
-      stack.forEach(frame => {
-        const sourceUrl = frame.file;
-        // Skip `/debuggerWorker.js` which does not need symbolication.
-        if (
-          sourceUrl != null &&
-          !urls.has(sourceUrl) &&
-          !sourceUrl.endsWith('/debuggerWorker.js') &&
-          sourceUrl.startsWith('http')
-        ) {
-          urls.add(sourceUrl);
-        }
-      });
-
-      debug('Getting source maps for symbolication');
-      const sourceMaps = await Promise.all(
-        Array.from(urls.values()).map(this._explodedSourceMapForURL, this),
-      );
-
-      debug('Performing fast symbolication');
-      const symbolicatedStack = await await symbolicate(
-        stack,
-        zip(urls.values(), sourceMaps),
-        this._config,
-      );
-
-      debug('Symbolication done');
-      res.end(
-        JSON.stringify({
-          codeFrame: getCodeFrame(urls, symbolicatedStack),
-          stack: symbolicatedStack,
-        }),
-      );
-      process.nextTick(() => {
-        log(createActionEndEntry(symbolicatingLogEntry));
-      });
-    } catch (error) {
-      console.error(error.stack || error);
-      res.statusCode = 500;
-      res.end(JSON.stringify({error: error.message}));
-    }
   }
 
   async _explodedSourceMapForURL(reqUrl: string): Promise<ExplodedSourceMap> {
-    const options = parseOptionsFromUrl(
+    const {options} = parseOptionsFromUrl(
       reqUrl,
       new Set(this._config.resolver.platforms),
     );
@@ -927,29 +1090,18 @@ class Server {
     return this._config.watchFolders;
   }
 
-  static DEFAULT_GRAPH_OPTIONS: {|
-    customTransformOptions: any,
-    dev: boolean,
-    hot: boolean,
-    minify: boolean,
-  |} = {
+  getVisualizerConfig(): $ReadOnly<VisualizerConfigT> {
+    return this._config.visualizer;
+  }
+
+  static DEFAULT_GRAPH_OPTIONS = {
     customTransformOptions: Object.create(null),
     dev: true,
     hot: false,
     minify: false,
   };
 
-  static DEFAULT_BUNDLE_OPTIONS: {|
-    ...typeof Server.DEFAULT_GRAPH_OPTIONS,
-    excludeSource: false,
-    inlineSourceMap: false,
-    modulesOnly: false,
-    onProgress: null,
-    runModule: true,
-    shallow: false,
-    sourceMapUrl: null,
-    sourceUrl: null,
-  |} = {
+  static DEFAULT_BUNDLE_OPTIONS = {
     ...Server.DEFAULT_GRAPH_OPTIONS,
     excludeSource: false,
     inlineSourceMap: false,

@@ -124,9 +124,7 @@ function inlinePlugin(context, options) {
         ) {
           if (hasStaticProperties(arg)) {
             const fallback = () =>
-              findProperty(arg, "native", () =>
-                findProperty(arg, "default", () => t.identifier("undefined"))
-              );
+              findProperty(arg, "default", () => t.identifier("undefined"));
 
             path.replaceWith(findProperty(arg, opts.platform, fallback));
           }

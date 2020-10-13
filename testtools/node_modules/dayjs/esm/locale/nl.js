@@ -11,6 +11,7 @@ var locale = {
     return n + ".";
   },
   weekStart: 1,
+  yearStart: 4,
   formats: {
     LT: 'HH:mm',
     LTS: 'HH:mm:ss',

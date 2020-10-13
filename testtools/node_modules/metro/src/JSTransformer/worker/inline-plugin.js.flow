@@ -16,7 +16,7 @@ import typeof {types as BabelTypes} from '@babel/core';
 import type {Ast} from '@babel/core';
 import type {Path} from '@babel/traverse';
 
-type Context = {types: BabelTypes, ...};
+type Context = {types: BabelTypes};
 
 type Options = {
   dev: boolean,
@@ -24,10 +24,11 @@ type Options = {
   isWrapped: boolean,
   requireName?: string,
   platform: string,
-  ...
 };
 
-type State = {opts: Options, ...};
+type State = {
+  opts: Options,
+};
 
 const env = {name: 'env'};
 const nodeEnv = {name: 'NODE_ENV'};
@@ -35,16 +36,7 @@ const processId = {name: 'process'};
 
 const dev = {name: '__DEV__'};
 
-function inlinePlugin(
-  context: Context,
-  options: Options,
-): {|
-  visitor: {|
-    CallExpression: (path: Path, state: State) => void,
-    Identifier: (path: Path, state: State) => void,
-    MemberExpression: (path: Path, state: State) => void,
-  |},
-|} {
+function inlinePlugin(context: Context, options: Options) {
   const t = context.types;
 
   const {isPlatformNode, isPlatformSelectNode} = createInlinePlatformChecks(
@@ -140,9 +132,7 @@ function inlinePlugin(
         ) {
           if (hasStaticProperties(arg)) {
             const fallback = () =>
-              findProperty(arg, 'native', () =>
-                findProperty(arg, 'default', () => t.identifier('undefined')),
-              );
+              findProperty(arg, 'default', () => t.identifier('undefined'));
 
             path.replaceWith(findProperty(arg, opts.platform, fallback));
           }

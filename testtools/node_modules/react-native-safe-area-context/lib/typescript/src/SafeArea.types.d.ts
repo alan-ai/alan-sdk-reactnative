@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { NativeSyntheticEvent, ViewStyle, ViewProps } from 'react-native';
+import { NativeSyntheticEvent, StyleProp, ViewProps, ViewStyle } from 'react-native';
 export declare type Edge = 'top' | 'right' | 'bottom' | 'left';
 export interface EdgeInsets {
     top: number;
@@ -21,7 +21,7 @@ export declare type InsetChangedEvent = NativeSyntheticEvent<Metrics>;
 export declare type InsetChangeNativeCallback = (event: InsetChangedEvent) => void;
 export interface NativeSafeAreaProviderProps {
     children?: React.ReactNode;
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
     onInsetsChange: InsetChangeNativeCallback;
 }
 export declare type NativeSafeAreaViewProps = ViewProps & {

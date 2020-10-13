@@ -1,4 +1,4 @@
-export default (function (o, c) {
+export default (function (o, c, dayjs) {
   var proto = c.prototype;
 
   var isObject = function isObject(obj) {
@@ -16,12 +16,18 @@ export default (function (o, c) {
     var $d = {};
 
     if (isObject(date)) {
+      if (!Object.keys(date).length) {
+        return new Date();
+      }
+
+      var now = utc ? dayjs.utc() : dayjs();
       Object.keys(date).forEach(function (k) {
         $d[prettyUnit(k)] = date[k];
       });
-      var y = $d.year || 1970;
-      var M = $d.month - 1 || 0;
-      var d = $d.day || 1;
+      var d = $d.day || (!$d.year && !($d.month >= 0) ? now.date() : 1);
+      var y = $d.year || now.year();
+      var M = $d.month >= 0 ? $d.month : !$d.year && !$d.day ? now.month() : 0; // eslint-disable-line no-nested-ternary,max-len
+
       var h = $d.hour || 0;
       var m = $d.minute || 0;
       var s = $d.second || 0;

@@ -1,8 +1,8 @@
 import { D, W, Y } from '../../constant';
 var isoWeekPrettyUnit = 'isoweek';
 export default (function (o, c, d) {
-  var getYearFirstThursday = function getYearFirstThursday(year) {
-    var yearFirstDay = d().year(year).startOf(Y);
+  var getYearFirstThursday = function getYearFirstThursday(year, isUtc) {
+    var yearFirstDay = (isUtc ? d.utc : d)().year(year).startOf(Y);
     var addDiffDays = 4 - yearFirstDay.isoWeekday();
 
     if (yearFirstDay.isoWeekday() > 4) {
@@ -29,7 +29,7 @@ export default (function (o, c, d) {
     }
 
     var nowWeekThursday = getCurrentWeekThursday(this);
-    var diffWeekThursday = getYearFirstThursday(this.isoWeekYear());
+    var diffWeekThursday = getYearFirstThursday(this.isoWeekYear(), this.$u);
     return nowWeekThursday.diff(diffWeekThursday, W) + 1;
   };
 

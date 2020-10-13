@@ -81,7 +81,7 @@ function formatBundlingError(error) {
     return {
       type: "InternalError",
       errors: [],
-      message: "Metro has encountered an error: " + error.message
+      message: "Metro Bundler has encountered an error: " + error.message
     };
   }
 }
