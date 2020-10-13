@@ -1,6 +1,12 @@
 version: 2.1
 
 jobs:
+  analyse_js:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: .
+      - rn/yarn_install
   checkout_code:
     executor: rn/linux_js
     steps:
@@ -16,8 +22,11 @@ workflows:
   test:
     jobs:
       - checkout_code
+      - analyse_js:
+          requires:
+            - checkout_code
       - rn/android_build:
           project_path: ./testapp/android
           build_type: release
           requires:
-            - checkout_code
+            - analyse_js
