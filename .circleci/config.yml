@@ -35,6 +35,8 @@ workflows:
           requires:
             - checkout_code
       - build_app
+          requires:
+            - analyse_js
       # - rn/android_build:
           # project_path: ./testtools/android
           # build_type: release
