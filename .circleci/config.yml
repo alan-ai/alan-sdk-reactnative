@@ -3,7 +3,9 @@ version: 2.1
 orbs:
   react-native: react-native-community/react-native@4.4.2
 
-jobs:
-  - rn/android_build:
-    project_path: ./testapp/android
-    build_type: debug
+workflows:
+  test:
+    jobs:
+      - rn/android_build:
+          project_path: ./testapp/android
+          build_type: release
