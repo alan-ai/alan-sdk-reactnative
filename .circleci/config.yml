@@ -5,9 +5,8 @@ jobs:
     executor: rn/linux_js
     steps:
       - attach_workspace:
-          at: .
-      - rn/yarn_install
-      - run: yarn install        
+          at: ./testapp
+      - rn/yarn_install    
 
   checkout_code:
     executor: rn/linux_js
