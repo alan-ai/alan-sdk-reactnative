@@ -17,6 +17,11 @@ jobs:
       - persist_to_workspace:
           paths: .
           root: .
+  build_app:
+    executor: rn/linux_js
+    steps:
+      - run:
+        command: cd ./testapp/android && ./gradlew assembleDebug
 
 orbs:
   rn: react-native-community/react-native@4.4.2
@@ -28,8 +33,9 @@ workflows:
       - analyse_js:
           requires:
             - checkout_code
-      - rn/android_build:
-          project_path: ./testapp/android
-          build_type: release
-          requires:
-            - analyse_js
+      - build_app
+      # - rn/android_build:
+          # project_path: ./testapp/android
+          # build_type: release
+          # requires:
+            # - analyse_js
