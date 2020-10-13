@@ -1,0 +1,1878 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "b42eddba1a53c9d27279cfe7fc0416c10a81489826ad47e39013b9d340fc0cc7",
+        "signature": "b42eddba1a53c9d27279cfe7fc0416c10a81489826ad47e39013b9d340fc0cc7"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
+        "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
+      },
+      "../../node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
+        "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
+      },
+      "../../node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
+        "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "734ddc145e147fbcd55f07d034f50ccff1086f5a880107665ec326fb368876f6",
+        "signature": "734ddc145e147fbcd55f07d034f50ccff1086f5a880107665ec326fb368876f6"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "4a0862a21f4700de873db3b916f70e41570e2f558da77d2087c9490f5a0615d8",
+        "signature": "4a0862a21f4700de873db3b916f70e41570e2f558da77d2087c9490f5a0615d8"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "765e0e9c9d74cf4d031ca8b0bdb269a853e7d81eda6354c8510218d03db12122",
+        "signature": "765e0e9c9d74cf4d031ca8b0bdb269a853e7d81eda6354c8510218d03db12122"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "285958e7699f1babd76d595830207f18d719662a0c30fac7baca7df7162a9210",
+        "signature": "285958e7699f1babd76d595830207f18d719662a0c30fac7baca7df7162a9210"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "d4deaafbb18680e3143e8b471acd650ed6f72a408a33137f0a0dd104fbe7f8ca",
+        "signature": "d4deaafbb18680e3143e8b471acd650ed6f72a408a33137f0a0dd104fbe7f8ca"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
+        "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
+        "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
+        "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
+      },
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
+        "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
+      },
+      "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
+        "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
+      },
+      "../../node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "c2d60b2e558d44384e4704b00e6b3d154334721a911f094d3133c35f0917b408",
+        "signature": "c2d60b2e558d44384e4704b00e6b3d154334721a911f094d3133c35f0917b408"
+      },
+      "../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
+        "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
+      },
+      "../../node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
+        "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
+      },
+      "../../node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
+        "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
+      },
+      "../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
+        "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
+      },
+      "./definitions/xcode/index.d.ts": {
+        "version": "db186fcf3e4e03384738c80e94cb88165a8e7b7aa2e69f833895804ce190a0c9",
+        "signature": "db186fcf3e4e03384738c80e94cb88165a8e7b7aa2e69f833895804ce190a0c9"
+      },
+      "./definitions/xcode/lib/index.d.ts": {
+        "version": "e199694f23a652030c39ec6a62fd8858b4c545473ed12c300cb016162b19f27c",
+        "signature": "e199694f23a652030c39ec6a62fd8858b4c545473ed12c300cb016162b19f27c"
+      },
+      "./src/link/getgroup.ts": {
+        "version": "d7d70ad3a47bb0fe4e258a9346e5fe8fe9efc1aa89a5462e3063c2ad2edef337",
+        "signature": "d772584a3adf482cc8871a3229776878cb41c23a73b741f212eaa7d9573766c0"
+      },
+      "./src/link/haslibraryimported.ts": {
+        "version": "fabe849b2c95b258afaa43bda5d0e4b8c282a23e9f2643a2d2a20982657faf3b",
+        "signature": "c0aad710a330f166b25c0ab075f2eb0b61bb35f36726fc4aee686861a705aa7f"
+      },
+      "../cli-types/build/ios.d.ts": {
+        "version": "0e2111471d3d06d3a031ec2bb1a96e47e5522ebcd068efe26270f423349207dc",
+        "signature": "0e2111471d3d06d3a031ec2bb1a96e47e5522ebcd068efe26270f423349207dc"
+      },
+      "../cli-types/build/android.d.ts": {
+        "version": "4ee6abae02f3b8a799023538cba2924562a128a810e62838725fa3936db5fbdd",
+        "signature": "4ee6abae02f3b8a799023538cba2924562a128a810e62838725fa3936db5fbdd"
+      },
+      "../cli-types/build/index.d.ts": {
+        "version": "81e5c0d382091d9a13f8c11af246e415bcc36cc4f2b637facbda89f99c263e38",
+        "signature": "81e5c0d382091d9a13f8c11af246e415bcc36cc4f2b637facbda89f99c263e38"
+      },
+      "./src/link/isinstalled.ts": {
+        "version": "4a6ce5c4a0cfede1f18ea7cf689d2628359a792ed7703925824f32a8df8458a0",
+        "signature": "ee1124037cfdb171bce9a1a92a7288ce84daab2826dd70435ab9a688b36a78dd"
+      },
+      "../tools/build/logger.d.ts": {
+        "version": "1bb0b661cdb89ac47b24e3c49e1aaea8cf36e61844a55b8b239c8c988823e3cf",
+        "signature": "1bb0b661cdb89ac47b24e3c49e1aaea8cf36e61844a55b8b239c8c988823e3cf"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/common.d.ts": {
+        "version": "4025cf62742c5bb3d383c8a62342481622c87e3397ea5e7b7baab18b9efd5798",
+        "signature": "4025cf62742c5bb3d383c8a62342481622c87e3397ea5e7b7baab18b9efd5798"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/array.d.ts": {
+        "version": "c21830111d49a5cd7a9f384370db5b41c659d045fe920bcac1cc9f507c88125d",
+        "signature": "c21830111d49a5cd7a9f384370db5b41c659d045fe920bcac1cc9f507c88125d"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts": {
+        "version": "0c75b204aed9cf6ff1c7b4bed87a3ece0d9d6fc857a6350c0c95ed0c38c814e8",
+        "signature": "0c75b204aed9cf6ff1c7b4bed87a3ece0d9d6fc857a6350c0c95ed0c38c814e8"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/date.d.ts": {
+        "version": "187119ff4f9553676a884e296089e131e8cc01691c546273b1d0089c3533ce42",
+        "signature": "187119ff4f9553676a884e296089e131e8cc01691c546273b1d0089c3533ce42"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/function.d.ts": {
+        "version": "035b95793288bf4457a2b80bfe9b7500a29324ad62adcf9991277198e8833096",
+        "signature": "035b95793288bf4457a2b80bfe9b7500a29324ad62adcf9991277198e8833096"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts": {
+        "version": "c2d47e5668f89ed8768d306919c42bb88d50d4029d68f58343141360895cfcc0",
+        "signature": "c2d47e5668f89ed8768d306919c42bb88d50d4029d68f58343141360895cfcc0"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/math.d.ts": {
+        "version": "65648639567d214f62c1b21d200c852807e68bdb08311f95ab6f526ef5b98995",
+        "signature": "65648639567d214f62c1b21d200c852807e68bdb08311f95ab6f526ef5b98995"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/number.d.ts": {
+        "version": "00baffbe8a2f2e4875367479489b5d43b5fc1429ecb4a4cc98cfc3009095f52a",
+        "signature": "00baffbe8a2f2e4875367479489b5d43b5fc1429ecb4a4cc98cfc3009095f52a"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/object.d.ts": {
+        "version": "7fc5a3d7cff296cea5c225911726a56283b663328709088fcc912d61f73682fc",
+        "signature": "7fc5a3d7cff296cea5c225911726a56283b663328709088fcc912d61f73682fc"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts": {
+        "version": "3c92b6dfd43cc1c2485d9eba5ff0b74a19bb8725b692773ef1d66dac48cda4bd",
+        "signature": "3c92b6dfd43cc1c2485d9eba5ff0b74a19bb8725b692773ef1d66dac48cda4bd"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/string.d.ts": {
+        "version": "e34f3f6159b1e23de9bb5521382795aaa5aaed6f53b4702e70a2ec45bc76ddb5",
+        "signature": "e34f3f6159b1e23de9bb5521382795aaa5aaed6f53b4702e70a2ec45bc76ddb5"
+      },
+      "../../node_modules/@types/lodash/ts3.1/common/util.d.ts": {
+        "version": "2630a7cbb597e85d713b7ef47f2946d4280d3d4c02733282770741d40672b1a5",
+        "signature": "2630a7cbb597e85d713b7ef47f2946d4280d3d4c02733282770741d40672b1a5"
+      },
+      "../../node_modules/@types/lodash/ts3.1/index.d.ts": {
+        "version": "bbf144d4354e2aaa6439f32761f3ee798cc68d1600adab6e2a596f25269f106d",
+        "signature": "bbf144d4354e2aaa6439f32761f3ee798cc68d1600adab6e2a596f25269f106d"
+      },
+      "../tools/build/groupfilesbytype.d.ts": {
+        "version": "2a0628301550a4a4e9d9fc966b69a1073b6fada348bcab5470fbaca33166ca10",
+        "signature": "2a0628301550a4a4e9d9fc966b69a1073b6fada348bcab5470fbaca33166ca10"
+      },
+      "../tools/build/ispackagerrunning.d.ts": {
+        "version": "4240532414321bbbf84251d18a15ab22caa597809a59b68321703c0c345e1106",
+        "signature": "4240532414321bbbf84251d18a15ab22caa597809a59b68321703c0c345e1106"
+      },
+      "../tools/build/getdefaultuserterminal.d.ts": {
+        "version": "8620889a6b02c58be69bf42e6f150b95cba8ecdd9f54a36ef73b5f39d223e839",
+        "signature": "8620889a6b02c58be69bf42e6f150b95cba8ecdd9f54a36ef73b5f39d223e839"
+      },
+      "../../node_modules/@types/events/index.d.ts": {
+        "version": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935",
+        "signature": "400db42c3a46984118bff14260d60cec580057dc1ab4c2d7310beb643e4f5935"
+      },
+      "../../node_modules/@types/node/inspector.d.ts": {
+        "version": "7e49dbf1543b3ee54853ade4c5e9fa460b6a4eca967efe6bf943e0c505d087ed",
+        "signature": "7e49dbf1543b3ee54853ade4c5e9fa460b6a4eca967efe6bf943e0c505d087ed"
+      },
+      "../../node_modules/@types/node/base.d.ts": {
+        "version": "9eb6ed7f67245f815a70e718cb2396070890ce589978cb5ae9738fa2287a9c72",
+        "signature": "9eb6ed7f67245f815a70e718cb2396070890ce589978cb5ae9738fa2287a9c72"
+      },
+      "../../node_modules/@types/node/ts3.2/index.d.ts": {
+        "version": "1de0ff6200b92798a5aef43f57029c79dbf69932037dee1c007fdd2c562db258",
+        "signature": "1de0ff6200b92798a5aef43f57029c79dbf69932037dee1c007fdd2c562db258"
+      },
+      "../../node_modules/form-data/index.d.ts": {
+        "version": "cbb7029e32a6a72178cda8baa9129b1ee6d1d779a35e46c780e38b4909d42a89",
+        "signature": "cbb7029e32a6a72178cda8baa9129b1ee6d1d779a35e46c780e38b4909d42a89"
+      },
+      "../../node_modules/@types/node-fetch/externals.d.ts": {
+        "version": "972f1e91dab93b182624a17eeed02f683b8cb3fefbda7b689cc84570029d5f73",
+        "signature": "972f1e91dab93b182624a17eeed02f683b8cb3fefbda7b689cc84570029d5f73"
+      },
+      "../../node_modules/@types/node-fetch/index.d.ts": {
+        "version": "c9d63ee4a61f19e98fd55c3c7d5a3dbdfbcf787a0136ee99f5e116a0eed2ac6d",
+        "signature": "c9d63ee4a61f19e98fd55c3c7d5a3dbdfbcf787a0136ee99f5e116a0eed2ac6d"
+      },
+      "../tools/build/fetch.d.ts": {
+        "version": "941c99de538bfb97f3731a00754c46ca4d0edead0c43fefffdf932f2588486a3",
+        "signature": "941c99de538bfb97f3731a00754c46ca4d0edead0c43fefffdf932f2588486a3"
+      },
+      "../tools/build/errors.d.ts": {
+        "version": "b84df6e81723082e0c240b32ada81458f8116262c54e3232f379e4ed90e9c933",
+        "signature": "b84df6e81723082e0c240b32ada81458f8116262c54e3232f379e4ed90e9c933"
+      },
+      "../tools/build/index.d.ts": {
+        "version": "a85fee4edc5a47d39293b1643458fe3450748be0ba3caa7286a0ece1ec670960",
+        "signature": "a85fee4edc5a47d39293b1643458fe3450748be0ba3caa7286a0ece1ec670960"
+      },
+      "./src/link-pods/readpodfile.ts": {
+        "version": "ea3993fcfa99026d7203908b7441c9982b0b8cfdb2434e72192ed0b34660666e",
+        "signature": "4ba8f6ad3ae820075f02d7e35dae998b03ab3d2b583d18a268b8fafc9f158044"
+      },
+      "./src/config/getpodspecname.ts": {
+        "version": "de21c8b0255505d63981cea720232cdd78a00b0f684fe35ca709a5b4321c8f46",
+        "signature": "2528a3305c596f71f88a19bef7b8bfc92de1a51312d061ab729dbbdd8fb3baaa"
+      },
+      "./src/link-pods/isinstalled.ts": {
+        "version": "91567747faa913eb1b0013ca4cf29e62fdbb5ad51ed79da1354509c0c383cdf2",
+        "signature": "86364f26790093ff2638c38431fd4fe3fac8f54a7763f308ea63f832b9c86943"
+      },
+      "./src/link/common/isinstalled.ts": {
+        "version": "0c8a07b5760db08f5c781da86567aef7b3fa20cd2714e857551a7d21513551f7",
+        "signature": "904d8232bca9a9a42aa6a3412dd78f62e9e86e90a1bd2ebb1bf5d0faef77496a"
+      },
+      "./src/link/mapheadersearchpaths.ts": {
+        "version": "ee36d3b5991e2e10cdebe0e46fc9aa1edc9cdc7a5dd7c67f1a5653ba5ed1ffcc",
+        "signature": "3abb74dd807cd92f329fd5cb2638a6d0d22d6fe09eddf4ec1400fc7556b135af"
+      },
+      "./src/link/addtoheadersearchpaths.ts": {
+        "version": "6751e6460bbe9a485edc014f03214e62a1cd8b397fd574efd1985364de204c06",
+        "signature": "f364f4443b8e1753c6fad2c8014d1724585677ecca8a578414095580c58c75a8"
+      },
+      "../../node_modules/@types/minimatch/index.d.ts": {
+        "version": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633",
+        "signature": "1d1e6bd176eee5970968423d7e215bfd66828b6db8d54d17afec05a831322633"
+      },
+      "../../node_modules/@types/glob/index.d.ts": {
+        "version": "d852d6282c8dc8156d26d6bda83ab4bde51fee05ba2fe0ecdc165ddda009d3ee",
+        "signature": "d852d6282c8dc8156d26d6bda83ab4bde51fee05ba2fe0ecdc165ddda009d3ee"
+      },
+      "./src/link/getheadersinfolder.ts": {
+        "version": "ca5da3a75a0cf343d4bfce81efd32100ed0edcdaad2bd1b5af5d67b36887ebb6",
+        "signature": "6110ea2ea5d6d182ce579b9ab0aeb9b297c1a4731a62a9fd0906a54110df9b59"
+      },
+      "./src/link/getheadersearchpath.ts": {
+        "version": "e25d319052f568d6805c5210b4185f8693f2d642e245b7966e9dc1babefab5c7",
+        "signature": "9d2131c3cf0d68df135e82a48259b4ea77b1bc16abad9aace4a7da150918d1c5"
+      },
+      "./src/link/gettargets.ts": {
+        "version": "f8f59c58366886073f624e44701030fac07b035ac0ed1bd085fc7671ebf7483d",
+        "signature": "38154f7ab8ae02a2f897a4a0e81aeb28d962c0f30710410c9bc0cfbf9b0ef44a"
+      },
+      "./src/link/creategroup.ts": {
+        "version": "5ea06288a6cfb747db7fec39a06f628446a8cf017555c573f9800de77a4caf30",
+        "signature": "2045bd8fb111d61595f9de8ed2ba40be0c741a25f46c26a3d47e5f766b0b4f69"
+      },
+      "./src/link/creategroupwithmessage.ts": {
+        "version": "e0387ee3ec1ba78925e7822c6ea5933372b74382107042ff1936c0e7799423e9",
+        "signature": "71d930e1eff35694334c394c154c85a258ae44191195e9ad7cd508fb8bc6ade1"
+      },
+      "./src/link/addfiletoproject.ts": {
+        "version": "fe0cef4743afb33a159bd9c078d322d69d61faaf73656d7b12135e457e79bd80",
+        "signature": "ceb93b6b33cff1594792b1b8dd5e00d0b16425cdd675d66979e5ec25839b79c9"
+      },
+      "./src/link/addprojecttolibraries.ts": {
+        "version": "83ec737056ae7f2434be4a8fc8b16e3bb22e3a6f9bc5133196204d328438af47",
+        "signature": "a667939c1f76c85d6ee0986b4320d31a7786f9764ddc792f795272a23faa991a"
+      },
+      "./src/link/addsharedlibraries.ts": {
+        "version": "a12dd237392362a6c2b515ff2fa1044fb7f7b219aba7f4c19f3c496b10333a07",
+        "signature": "2e5549a9c679d8e98b0486190f4074acc924cb2f6933a97bf90849b60b60257b"
+      },
+      "./src/link/registernativemodule.ts": {
+        "version": "7d82da83f9a7fe571d429a84c194ca51d5858af3c324c9810943f3a15f607bcd",
+        "signature": "97a027c1874204f1d0c902a00f2ce2f83ed9ddadb0cdd99a375581874e029e77"
+      },
+      "../../node_modules/chalk/index.d.ts": {
+        "version": "f416820e2e8f33a5e07698bd5f50acf6db29716d98896ec1bf11b483d3ed4c54",
+        "signature": "f416820e2e8f33a5e07698bd5f50acf6db29716d98896ec1bf11b483d3ed4c54"
+      },
+      "./src/link-pods/findpodtargetline.ts": {
+        "version": "ab42384821528f69fdb332498bcfbadd969e69c9856d265cee8724a30d3d18ce",
+        "signature": "5650291b08c748384b0baa6437ab831218fccc99a205cc793e0283b8168758d4"
+      },
+      "./src/link-pods/findlinetoaddpod.ts": {
+        "version": "805cfcd1118975f11f8461edc35e01653a5023c9418d780f0200792c86b3180b",
+        "signature": "7fa8fbc1fe15562e02cbd81026f7a3bbb68f8a4227e9cb1cade407fcb33cbba5"
+      },
+      "./src/link-pods/findmarkedlinesinpodfile.ts": {
+        "version": "32f636f722b8cdb709a8d7f459f8388f0fcc59e1eb9e26bcd313b9436443b7f0",
+        "signature": "e16e7c2489512ac40e99651c1074f65ce0072fb683680648e9a5dde944d6565c"
+      },
+      "./src/link-pods/addpodentry.ts": {
+        "version": "839b417057662830d08232fdc2dd13db35d9f7c41d9e973f4b20e3f453f2c3fe",
+        "signature": "7704029f07de24d06cc8d07e5f63440c4d42631356e1ca3a6e80602c9d7b1d38"
+      },
+      "./src/link-pods/savepodfile.ts": {
+        "version": "a64fa5197ec593edb153214e51091c8aee6ef9bf7389363bea7c3c6d9b10fbb2",
+        "signature": "040d6d6a7e6e8501ba1ade659fa35e9e5e6f97fe205384a2e4e20f6a60ef9910"
+      },
+      "./src/link-pods/registernativemodule.ts": {
+        "version": "e421f9a1be78dd735b12e0932484ad41fca6d964fcf824d7a649541b68ae7650",
+        "signature": "2fe0d977a1c8f98cb68be377fc19d96a8fc4c6ca7d24b8cf9c87d7dc2107638d"
+      },
+      "./src/link/common/registernativemodule.ts": {
+        "version": "50ceaae0636ae57b1abed92e99f38f58c0f2945a18fc44b02ecdeb34cbbef4a6",
+        "signature": "92f29dc3ce51013898d9408744ef06a86f102e24efdd0138a33305f2c0c95086"
+      },
+      "./src/link/removefrompbxitemcontainerproxysection.ts": {
+        "version": "d4c937ae81c4887844a002b9f49950947b06c122f54dfc62e6b776590363d419",
+        "signature": "b2384d1fb29c306be5572d98c3113123630dd5a1d7394f0e63ac1981844e19c4"
+      },
+      "./src/link/removefromprojectreferences.ts": {
+        "version": "3563f0bed9d0bf811ea7d21af7f0bed879a8c6eb2dad25d774d6cb40b87b54cc",
+        "signature": "1d5fcfb3e11eee4e54da2f49d15206c8ccdeecea74aaa2fc89137712a82df375"
+      },
+      "./src/link/removeproductgroup.ts": {
+        "version": "134fa7f30d5f668f271bd66f804b81ae47b2248d164046a4b9895e808301c815",
+        "signature": "dfc0bcb3c6236ea2e796327b49714b58e09680cc1c449a16041a9424af26d6a3"
+      },
+      "./src/link/removeprojectfromproject.ts": {
+        "version": "2346116490c60dd5002631b865048153df741d0195d68d58d4c56abb9722cb4b",
+        "signature": "1bd29b8cf5249629ba8e14268f4b85ad6852cf63e37a43687e1e106ab3e6db73"
+      },
+      "./src/link/removeprojectfromlibraries.ts": {
+        "version": "506b1d65b192b69b313fab07dfef3cdce87cc3d6faa4e28b38828cdf57b4be4f",
+        "signature": "45ec0600c60b112554586b57b11db36616d1e49789ab302cf14906a9396bc49b"
+      },
+      "./src/link/removefrompbxreferenceproxysection.ts": {
+        "version": "ec29bfa115ec343e95c414e3290335cbc6945c430b64c1bbec8b333bc9b63c35",
+        "signature": "eae1961f4805898e485d31f4a86f47fbac53add815e579e6a83d2bcd8c27249e"
+      },
+      "./src/link/removefromstaticlibraries.ts": {
+        "version": "40cac40bd728160b19926e547be4dab3b8e515e6de1cc582dfd0e40238f97f1d",
+        "signature": "298f749ade289452e3dffcd42d630e6949be84840ccd4ac342a31f945b687896"
+      },
+      "./src/link/removefromheadersearchpaths.ts": {
+        "version": "7ef7d93c3d9e8378276e41a99197cbca8c9b8ebd36c4e7fcf83c83d5c8b9e80f",
+        "signature": "f18609081fb4158deabdffad3c9b3fe304705545c09313d5b311a208ff9c1f09"
+      },
+      "./src/link/removesharedlibraries.ts": {
+        "version": "46d04de256706e70b4a1b9b6b08d23d97525e6490d85faf3cb9dfac0251a005a",
+        "signature": "6ba2f7ec892d4387350cea6461e9dcc7afdae5d9a44d37b3a46cb22e836ee430"
+      },
+      "./src/link/unregisternativemodule.ts": {
+        "version": "42f40bc009e04f0500de6f75a184250f1865c750bd330be622955032a0b08fb8",
+        "signature": "928d0c71ecc9c7bfd3158eae7193cbeff82179e5b0b21a1d8380ac4c47536b3f"
+      },
+      "./src/link-pods/removepodentry.ts": {
+        "version": "00485b42741a784875b37c80a0565df72d7026caab32d9717b7a533b6415c0bc",
+        "signature": "ac3f5bc9228ce3822bce72ee58d598ca7c658928eb9db7488c01cb723d4284fc"
+      },
+      "./src/link-pods/unregisternativemodule.ts": {
+        "version": "17b174008fefa0571bbf8fccbcbeb7d69e932ec9d6cff9f63c744bd638117715",
+        "signature": "695dac16136b89fa1e2d209482f7d4f37e1c2b46e9fee0e546bd7a11d89ec4b7"
+      },
+      "./src/link/common/unregisternativemodule.ts": {
+        "version": "1c1adec50046bf3e0b092d7bfc7e8e0188fe23f329ec6fad35cbcc3c921a3e9c",
+        "signature": "3858d812ade31e5b3bbcebcc8f872254f1011a059521b7cfbdbc050282b59de5"
+      },
+      "../../node_modules/xmlbuilder/typings/index.d.ts": {
+        "version": "e74d8ebc7621dbd09cb61ba00f87400d9b2f8603636e61116c749efc6bbc1126",
+        "signature": "e74d8ebc7621dbd09cb61ba00f87400d9b2f8603636e61116c749efc6bbc1126"
+      },
+      "../../node_modules/@types/plist/index.d.ts": {
+        "version": "6a7a0aa1245b6abb9c1245ee701b9856767112bc2649f1355058c4c3d8a0e555",
+        "signature": "6a7a0aa1245b6abb9c1245ee701b9856767112bc2649f1355058c4c3d8a0e555"
+      },
+      "./src/link/getbuildproperty.ts": {
+        "version": "01ca04453bd2230706cf119ad182c1319006ba3a0968347da42ca770375b1f59",
+        "signature": "41045d1262d7d9bdc5a0827133c5ba74d6e6f7688bf8539d9b506249ddf98dc9"
+      },
+      "./src/link/getplistpath.ts": {
+        "version": "1abfc6aed9e4d09677ab23eb21acbe6440d4b36164f08daca179b1746ebeb2e9",
+        "signature": "6b8fde8c77a03c7b27ba982aadfaacedf0634556a4797cd63a32314952583ede"
+      },
+      "./src/link/getplist.ts": {
+        "version": "819d7cdacef13b7993ec0c01e59ea58be92948a5ecdfcd78ee050a08bfdc89ab",
+        "signature": "910f149983ccf91442263336a5138564a26f771c0ff6ffbfbe83d6d26ca96ff5"
+      },
+      "./src/link/writeplist.ts": {
+        "version": "2faf82f999e94c28973c6d52802d64052b0706d172a992712e9063926086a151",
+        "signature": "c379529dfa4a4f525bcce7125ee53b1b4d0f9b402498edd0d32d402d32e9740f"
+      },
+      "./src/link/copyassets.ts": {
+        "version": "a07dfd2a0ec9b23d51681b96b077857cbf277115c26b4c387e6c4b942f816d4f",
+        "signature": "9f39a4ff809bc1d87b41c572cdce1c8d5f5b17a638e2eb03e2a955842d8dbcd3"
+      },
+      "./src/link/unlinkassets.ts": {
+        "version": "5d2fcc17cd2d807c68ebbba69b24f367a6070f76d70cd43c1e7479e7acee603e",
+        "signature": "a5d20326c0d03d4c7c8532421ef5ac9ee9fec3414593dbd3ba8d826dad4ddc79"
+      },
+      "./src/link/index.ts": {
+        "version": "aa7d331351a59209ee287ffa8924426f67c4a4f84e9a89f00b7730dae4f86bfd",
+        "signature": "042bfd402001ea91cca1af593438c8d8e948982e212f090d93ba24ff0143be71"
+      },
+      "./src/types.ts": {
+        "version": "c28ba73157ec3118a9a476811d34fd52019acf2380801e226c41313fe9e53725",
+        "signature": "f211425cc5c7ab68f6bbb5d2ba543dad1455cae88cd68e846f0a703ce8dc9af2"
+      },
+      "./src/commands/logios/index.ts": {
+        "version": "91a87eaab45cf064c61990e7b12ac2eddda358b0001145d228a9531df9d6d19b",
+        "signature": "ea1d67103f283f33d0416e95cbbbaa3695a3859d85e4924a0108111b18e98067"
+      },
+      "./src/commands/runios/findxcodeproject.ts": {
+        "version": "a1d6f189727bda4632c7dd7eb802cf94a18dd9788319bdb27356e4ddecb2423d",
+        "signature": "7555ae927d5af97bd9f32aea4caa4d5e423a202fc107024cc6747aa85d212a02"
+      },
+      "./src/commands/runios/parseiosdeviceslist.ts": {
+        "version": "b7751b2ce5527aa82c0db698728d7ac0e15f6b54a845df2a7d45e16a35e4f74e",
+        "signature": "6395930d8728e661ca50bc2305fb1b4a418a439d56f8a546a83ede561a5d6b32"
+      },
+      "./src/commands/runios/findmatchingsimulator.ts": {
+        "version": "df0547218d1f468cc8ae6d27470200035c8847f38e0d71d34acf22726aedfebe",
+        "signature": "73f83278c4151b56ad87c8ab3b647975072e46df6994288662cea706fe2c6f8b"
+      },
+      "./src/link/warnaboutmanuallylinkedlibs.ts": {
+        "version": "39c9810249bd41e6d8a89e9a493e6942a2400dfc72fbbcae14449a682043dd78",
+        "signature": "76d2d189b79c45191db2cc607dfd57f42d5ff92221aed0217ec18683de59dfea"
+      },
+      "../../node_modules/@types/js-yaml/index.d.ts": {
+        "version": "6c710fb284c75cba4e0bb719a4a6437680868c592fd82a06d9ac55a4339d195c",
+        "signature": "6c710fb284c75cba4e0bb719a4a6437680868c592fd82a06d9ac55a4339d195c"
+      },
+      "./src/link-pods/getdependenciesfrompodfilelock.ts": {
+        "version": "3f73b60f20460b8b658fd87fa7b7e1aa821fc13559624a05196a5c289dc873e5",
+        "signature": "3014eae98f979fe386d9a8479ad5e78b42c5e65a610d09e89153cd016f72c5bc"
+      },
+      "./src/link/warnaboutpodinstall.ts": {
+        "version": "e3a06f94b11060a7353e24b84b99cc9eb33f4e17c043b448dfe7a517177b76b2",
+        "signature": "04cfa4844246c91d18ecfd7547cd71de600404de59b1cc50483b433c45468644"
+      },
+      "./src/commands/runios/index.ts": {
+        "version": "2b5f875b0308bbac425ac156d8389a558db027968b3d3e171f2162271062b676",
+        "signature": "cae655d062682538b21322620a830dedfc2416e896876b6e6892cd3dd9c0c7cb"
+      },
+      "./src/commands/index.ts": {
+        "version": "34a8fb5c6528a20373ac2371318f080a66e5a449d2ff8d9663ed5b19abd8246b",
+        "signature": "076493b5bcb79c5a508236010678d869bd050e7ef94461b2cf4fdbf91175d59e"
+      },
+      "./src/config/findproject.ts": {
+        "version": "ec200837403ba1dd808ab84d23a1d234cda9c85a6de72fe1ac0a76034ad80922",
+        "signature": "b67ce834afd9ccf04e14e9a14fd3cd080b1f3c95b37fb7d10be5642abbccb850"
+      },
+      "./src/config/findpodfilepath.ts": {
+        "version": "c2ad19d321f6082b15a1f83b960ffe7c65e4b85cb6299a49a06c82a3547cb792",
+        "signature": "c26519befcee17457b7f6bb5987893c4f8eb1329bb0edfda3bf487a9cd1f92c1"
+      },
+      "./src/config/findpodspec.ts": {
+        "version": "11096d59acd3d2c5d8a8d05dbe4c9926a89f888425794e1be890c6c2760a471d",
+        "signature": "1b90b90c99597b1a229db330aa536c473e59c2d87617d08ae6b47bc0e91a0b62"
+      },
+      "./src/config/index.ts": {
+        "version": "eaf9bcb972f78165ba5993d91358c06b689e242a20abf64c2c8cd6538b6a17eb",
+        "signature": "7d4c11c30a2f5e6706cba64e74d0560cc6bd649ee0f88a57186c34cf1ebb08d7"
+      },
+      "./src/index.ts": {
+        "version": "36d34d4c3fb3196e0b6149778a61aa16d137aac852b2fa03c8f0534f8f40c0f3",
+        "signature": "9faac5d3e5bd1b34aefb18c2fd21f1ec9e3330e82e8aa1b69551258102cdb8b9"
+      },
+      "./src/config/__fixtures__/projects.ts": {
+        "version": "5165321bdb1db3d31c932c2c52faa7d5bf7cf886c41d0ce05f7873db9dc0f21c",
+        "signature": "0f7279c964c64e841317c4ebb614fbfa00d007563213be73788cb34e71ea8dd2"
+      }
+    },
+    "options": {
+      "target": 4,
+      "module": 1,
+      "lib": [
+        "lib.es2017.d.ts"
+      ],
+      "declaration": true,
+      "declarationMap": true,
+      "composite": true,
+      "emitDeclarationOnly": true,
+      "strict": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "moduleResolution": 2,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "rootDir": "./src",
+      "outDir": "./build",
+      "typeRoots": [
+        "./definitions"
+      ],
+      "configFilePath": "./tsconfig.json"
+    },
+    "referencedMap": {
+      "../../node_modules/typescript/lib/lib.es5.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2016.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./definitions/xcode/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./definitions/xcode/lib/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/getgroup.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/haslibraryimported.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../cli-types/build/ios.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../cli-types/build/android.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../cli-types/build/index.d.ts": [
+        "../cli-types/build/ios.d.ts",
+        "../cli-types/build/android.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/isinstalled.ts": [
+        "./definitions/xcode/index.d.ts",
+        "./src/link/getgroup.ts",
+        "./src/link/haslibraryimported.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/logger.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/common.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/array.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/date.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/function.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/math.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/number.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/object.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/string.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/util.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/index.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/groupfilesbytype.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/ispackagerrunning.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/getdefaultuserterminal.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/events/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node/inspector.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node/base.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/inspector.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node/ts3.2/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts"
+      ],
+      "../../node_modules/form-data/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node-fetch/externals.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node-fetch/index.d.ts": [
+        "../../node_modules/form-data/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node-fetch/externals.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/fetch.d.ts": [
+        "../../node_modules/@types/node-fetch/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/errors.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/index.d.ts": [
+        "../tools/build/logger.d.ts",
+        "../tools/build/groupfilesbytype.d.ts",
+        "../tools/build/ispackagerrunning.d.ts",
+        "../tools/build/getdefaultuserterminal.d.ts",
+        "../tools/build/fetch.d.ts",
+        "../tools/build/errors.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/readpodfile.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../tools/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/getpodspecname.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/isinstalled.ts": [
+        "./src/link-pods/readpodfile.ts",
+        "./src/config/getpodspecname.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/common/isinstalled.ts": [
+        "./src/link/isinstalled.ts",
+        "./src/link-pods/isinstalled.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/mapheadersearchpaths.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/addtoheadersearchpaths.ts": [
+        "./src/link/mapheadersearchpaths.ts",
+        "../tools/build/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/minimatch/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/glob/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/minimatch/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/getheadersinfolder.ts": [
+        "../../node_modules/@types/glob/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/getheadersearchpath.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/gettargets.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/creategroup.ts": [
+        "./src/link/getgroup.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/creategroupwithmessage.ts": [
+        "../tools/build/index.d.ts",
+        "./src/link/creategroup.ts",
+        "./src/link/getgroup.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/addfiletoproject.ts": [
+        "./definitions/xcode/lib/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/addprojecttolibraries.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/addsharedlibraries.ts": [
+        "./src/link/creategroupwithmessage.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/registernativemodule.ts": [
+        "./definitions/xcode/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "./src/link/addtoheadersearchpaths.ts",
+        "./src/link/getheadersinfolder.ts",
+        "./src/link/getheadersearchpath.ts",
+        "./src/link/gettargets.ts",
+        "./src/link/creategroupwithmessage.ts",
+        "./src/link/addfiletoproject.ts",
+        "./src/link/addprojecttolibraries.ts",
+        "./src/link/addsharedlibraries.ts",
+        "../tools/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/chalk/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/findpodtargetline.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/findlinetoaddpod.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/findmarkedlinesinpodfile.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/addpodentry.ts": [
+        "../tools/build/index.d.ts",
+        "./src/config/getpodspecname.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/savepodfile.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../tools/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/registernativemodule.ts": [
+        "../../node_modules/chalk/index.d.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "./src/link-pods/readpodfile.ts",
+        "./src/link-pods/findpodtargetline.ts",
+        "./src/link-pods/findlinetoaddpod.ts",
+        "./src/link-pods/findmarkedlinesinpodfile.ts",
+        "./src/link-pods/addpodentry.ts",
+        "./src/link-pods/savepodfile.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/common/registernativemodule.ts": [
+        "../cli-types/build/index.d.ts",
+        "./src/link/registernativemodule.ts",
+        "./src/link-pods/registernativemodule.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removefrompbxitemcontainerproxysection.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removefromprojectreferences.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removeproductgroup.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removeprojectfromproject.ts": [
+        "./definitions/xcode/lib/index.d.ts",
+        "./src/link/removefrompbxitemcontainerproxysection.ts",
+        "./src/link/removefromprojectreferences.ts",
+        "./src/link/removeproductgroup.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removeprojectfromlibraries.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removefrompbxreferenceproxysection.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removefromstaticlibraries.ts": [
+        "./definitions/xcode/lib/index.d.ts",
+        "./src/link/removefrompbxreferenceproxysection.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removefromheadersearchpaths.ts": [
+        "./src/link/mapheadersearchpaths.ts",
+        "../tools/build/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/removesharedlibraries.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/unregisternativemodule.ts": [
+        "./definitions/xcode/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "./src/link/getgroup.ts",
+        "./src/link/gettargets.ts",
+        "./src/link/getheadersinfolder.ts",
+        "./src/link/getheadersearchpath.ts",
+        "./src/link/removeprojectfromproject.ts",
+        "./src/link/removeprojectfromlibraries.ts",
+        "./src/link/removefromstaticlibraries.ts",
+        "./src/link/removefromheadersearchpaths.ts",
+        "./src/link/removesharedlibraries.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/removepodentry.ts": [
+        "../tools/build/index.d.ts",
+        "./src/config/getpodspecname.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/unregisternativemodule.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "./src/link-pods/removepodentry.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/common/unregisternativemodule.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "./src/link/isinstalled.ts",
+        "./src/link-pods/isinstalled.ts",
+        "./src/link/unregisternativemodule.ts",
+        "./src/link-pods/unregisternativemodule.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/xmlbuilder/typings/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/plist/index.d.ts": [
+        "../../node_modules/xmlbuilder/typings/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts"
+      ],
+      "./src/link/getbuildproperty.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/getplistpath.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "./src/link/getbuildproperty.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/getplist.ts": [
+        "../../node_modules/@types/plist/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "./src/link/getplistpath.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/writeplist.ts": [
+        "../../node_modules/@types/plist/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "./src/link/getplistpath.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/copyassets.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "./definitions/xcode/index.d.ts",
+        "./src/link/creategroupwithmessage.ts",
+        "./src/link/getplist.ts",
+        "./src/link/writeplist.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/unlinkassets.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "./definitions/xcode/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "./src/link/getplist.ts",
+        "./src/link/writeplist.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/index.ts": [
+        "./src/link/common/isinstalled.ts",
+        "./src/link/common/registernativemodule.ts",
+        "./src/link/common/unregisternativemodule.ts",
+        "./src/link/copyassets.ts",
+        "./src/link/unlinkassets.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/types.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/logios/index.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../tools/build/index.d.ts",
+        "./src/types.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/runios/findxcodeproject.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/runios/parseiosdeviceslist.ts": [
+        "./src/types.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/runios/findmatchingsimulator.ts": [
+        "./src/types.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/warnaboutmanuallylinkedlibs.ts": [
+        "../../node_modules/chalk/index.d.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "./src/link/index.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/js-yaml/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link-pods/getdependenciesfrompodfilelock.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/chalk/index.d.ts",
+        "../tools/build/index.d.ts",
+        "../../node_modules/@types/js-yaml/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/warnaboutpodinstall.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/chalk/index.d.ts",
+        "../tools/build/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "./src/link-pods/getdependenciesfrompodfilelock.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/runios/index.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/chalk/index.d.ts",
+        "../cli-types/build/index.d.ts",
+        "./src/commands/runios/findxcodeproject.ts",
+        "./src/commands/runios/parseiosdeviceslist.ts",
+        "./src/commands/runios/findmatchingsimulator.ts",
+        "./src/link/warnaboutmanuallylinkedlibs.ts",
+        "./src/link/warnaboutpodinstall.ts",
+        "../tools/build/index.d.ts",
+        "./src/types.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/index.ts": [
+        "./src/commands/logios/index.ts",
+        "./src/commands/runios/index.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/findproject.ts": [
+        "../../node_modules/@types/glob/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/findpodfilepath.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/findpodspec.ts": [
+        "../../node_modules/@types/glob/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/index.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "./src/config/findproject.ts",
+        "./src/config/findpodfilepath.ts",
+        "./src/config/findpodspec.ts",
+        "../cli-types/build/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/index.ts": [
+        "./src/link/index.ts",
+        "./src/commands/index.ts",
+        "./src/config/index.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/__fixtures__/projects.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ]
+    },
+    "exportedModulesMap": {
+      "../../node_modules/typescript/lib/lib.es5.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2016.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.object.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.string.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.intl.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./definitions/xcode/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/link/unlinkassets.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/index.ts": [
+        "./src/link/common/isinstalled.ts",
+        "./src/link/common/registernativemodule.ts",
+        "./src/link/common/unregisternativemodule.ts",
+        "./src/link/copyassets.ts",
+        "./src/link/unlinkassets.ts"
+      ],
+      "./src/index.ts": [
+        "./src/link/index.ts",
+        "./src/commands/index.ts",
+        "./src/config/index.ts"
+      ],
+      "./src/link/warnaboutmanuallylinkedlibs.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/commands/runios/index.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/commands/index.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/copyassets.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/unregisternativemodule.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/common/unregisternativemodule.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/registernativemodule.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/common/registernativemodule.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/isinstalled.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/common/isinstalled.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./definitions/xcode/lib/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../cli-types/build/ios.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../cli-types/build/index.d.ts": [
+        "../cli-types/build/ios.d.ts",
+        "../cli-types/build/android.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/config/index.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link/warnaboutpodinstall.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link-pods/unregisternativemodule.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link-pods/registernativemodule.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "./src/link-pods/isinstalled.ts": [
+        "../cli-types/build/index.d.ts"
+      ],
+      "../cli-types/build/android.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/logger.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/index.d.ts": [
+        "../tools/build/logger.d.ts",
+        "../tools/build/groupfilesbytype.d.ts",
+        "../tools/build/ispackagerrunning.d.ts",
+        "../tools/build/getdefaultuserterminal.d.ts",
+        "../tools/build/fetch.d.ts",
+        "../tools/build/errors.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/common.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/index.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/groupfilesbytype.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/util.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/string.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/object.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/number.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/math.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/function.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/date.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/lodash/ts3.1/common/array.d.ts": [
+        "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+        "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/ispackagerrunning.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/getdefaultuserterminal.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/events/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node/inspector.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node/base.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/inspector.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/js-yaml/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "./src/commands/runios/findmatchingsimulator.ts": [
+        "./src/types.ts"
+      ],
+      "./src/commands/runios/parseiosdeviceslist.ts": [
+        "./src/types.ts"
+      ],
+      "./src/link/writeplist.ts": [
+        "../../node_modules/@types/plist/index.d.ts"
+      ],
+      "./src/link/getplist.ts": [
+        "../../node_modules/@types/plist/index.d.ts"
+      ],
+      "../../node_modules/@types/plist/index.d.ts": [
+        "../../node_modules/xmlbuilder/typings/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts"
+      ],
+      "../../node_modules/xmlbuilder/typings/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/chalk/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/glob/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/minimatch/index.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/minimatch/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/errors.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../tools/build/fetch.d.ts": [
+        "../../node_modules/@types/node-fetch/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node-fetch/index.d.ts": [
+        "../../node_modules/form-data/index.d.ts",
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node-fetch/externals.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node-fetch/externals.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/form-data/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts",
+        "../../node_modules/@types/node/ts3.2/index.d.ts"
+      ],
+      "../../node_modules/@types/node/ts3.2/index.d.ts": [
+        "../../node_modules/@types/node/base.d.ts"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "./definitions/xcode/index.d.ts",
+      "./definitions/xcode/lib/index.d.ts",
+      "./src/link/getgroup.ts",
+      "./src/link/haslibraryimported.ts",
+      "../cli-types/build/ios.d.ts",
+      "../cli-types/build/android.d.ts",
+      "../cli-types/build/index.d.ts",
+      "./src/link/isinstalled.ts",
+      "../tools/build/logger.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/common.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/array.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/collection.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/date.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/function.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/lang.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/math.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/number.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/object.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/seq.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/string.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/common/util.d.ts",
+      "../../node_modules/@types/lodash/ts3.1/index.d.ts",
+      "../tools/build/groupfilesbytype.d.ts",
+      "../tools/build/ispackagerrunning.d.ts",
+      "../tools/build/getdefaultuserterminal.d.ts",
+      "../../node_modules/@types/events/index.d.ts",
+      "../../node_modules/@types/node/inspector.d.ts",
+      "../../node_modules/@types/node/base.d.ts",
+      "../../node_modules/@types/node/ts3.2/index.d.ts",
+      "../../node_modules/form-data/index.d.ts",
+      "../../node_modules/@types/node-fetch/externals.d.ts",
+      "../../node_modules/@types/node-fetch/index.d.ts",
+      "../tools/build/fetch.d.ts",
+      "../tools/build/errors.d.ts",
+      "../tools/build/index.d.ts",
+      "./src/link-pods/readpodfile.ts",
+      "./src/config/getpodspecname.ts",
+      "./src/link-pods/isinstalled.ts",
+      "./src/link/common/isinstalled.ts",
+      "./src/link/mapheadersearchpaths.ts",
+      "./src/link/addtoheadersearchpaths.ts",
+      "../../node_modules/@types/minimatch/index.d.ts",
+      "../../node_modules/@types/glob/index.d.ts",
+      "./src/link/getheadersinfolder.ts",
+      "./src/link/getheadersearchpath.ts",
+      "./src/link/gettargets.ts",
+      "./src/link/creategroup.ts",
+      "./src/link/creategroupwithmessage.ts",
+      "./src/link/addfiletoproject.ts",
+      "./src/link/addprojecttolibraries.ts",
+      "./src/link/addsharedlibraries.ts",
+      "./src/link/registernativemodule.ts",
+      "../../node_modules/chalk/index.d.ts",
+      "./src/link-pods/findpodtargetline.ts",
+      "./src/link-pods/findlinetoaddpod.ts",
+      "./src/link-pods/findmarkedlinesinpodfile.ts",
+      "./src/link-pods/addpodentry.ts",
+      "./src/link-pods/savepodfile.ts",
+      "./src/link-pods/registernativemodule.ts",
+      "./src/link/common/registernativemodule.ts",
+      "./src/link/removefrompbxitemcontainerproxysection.ts",
+      "./src/link/removefromprojectreferences.ts",
+      "./src/link/removeproductgroup.ts",
+      "./src/link/removeprojectfromproject.ts",
+      "./src/link/removeprojectfromlibraries.ts",
+      "./src/link/removefrompbxreferenceproxysection.ts",
+      "./src/link/removefromstaticlibraries.ts",
+      "./src/link/removefromheadersearchpaths.ts",
+      "./src/link/removesharedlibraries.ts",
+      "./src/link/unregisternativemodule.ts",
+      "./src/link-pods/removepodentry.ts",
+      "./src/link-pods/unregisternativemodule.ts",
+      "./src/link/common/unregisternativemodule.ts",
+      "../../node_modules/xmlbuilder/typings/index.d.ts",
+      "../../node_modules/@types/plist/index.d.ts",
+      "./src/link/getbuildproperty.ts",
+      "./src/link/getplistpath.ts",
+      "./src/link/getplist.ts",
+      "./src/link/writeplist.ts",
+      "./src/link/copyassets.ts",
+      "./src/link/unlinkassets.ts",
+      "./src/link/index.ts",
+      "./src/types.ts",
+      "./src/commands/logios/index.ts",
+      "./src/commands/runios/findxcodeproject.ts",
+      "./src/commands/runios/parseiosdeviceslist.ts",
+      "./src/commands/runios/findmatchingsimulator.ts",
+      "./src/link/warnaboutmanuallylinkedlibs.ts",
+      "../../node_modules/@types/js-yaml/index.d.ts",
+      "./src/link-pods/getdependenciesfrompodfilelock.ts",
+      "./src/link/warnaboutpodinstall.ts",
+      "./src/commands/runios/index.ts",
+      "./src/commands/index.ts",
+      "./src/config/findproject.ts",
+      "./src/config/findpodfilepath.ts",
+      "./src/config/findpodspec.ts",
+      "./src/config/index.ts",
+      "./src/index.ts",
+      "./src/config/__fixtures__/projects.ts",
+      "../../node_modules/typescript/lib/lib.es2015.d.ts",
+      "../../node_modules/typescript/lib/lib.es2016.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "../../node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "../../node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../../node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../../node_modules/typescript/lib/lib.es5.d.ts"
+    ]
+  },
+  "version": "3.8.2"
+}

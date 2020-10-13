@@ -1,0 +1,1 @@
+{"version":3,"sources":["NativeSafeAreaProvider.native.tsx"],"names":[],"mappings":"6FAAA,yC,aAGe,wCACb,qBADa,C","sourcesContent":["import { requireNativeComponent } from 'react-native';\nimport { NativeSafeAreaProviderProps } from './SafeArea.types';\n\nexport default requireNativeComponent<NativeSafeAreaProviderProps>(\n  'RNCSafeAreaProvider',\n);\n"]}

@@ -5,10 +5,10 @@ jobs:
     executor: rn/linux_js
     steps:
       - attach_workspace:
-          at: ./testapp
+          at: ./testtools
       - run:
           command: yarn install
-          working_directory: ./testapp
+          working_directory: ./testtools
 
   checkout_code:
     executor: rn/linux_js
@@ -21,7 +21,8 @@ jobs:
     executor: rn/linux_js
     steps:
       - run:
-        command: cd ./testapp/android && ./gradlew assembleDebug
+          name: Build Android RN Sample App (from testtools)
+          command: cd ./testtools/android && ./gradlew assembleDebug
 
 orbs:
   rn: react-native-community/react-native@4.4.2
@@ -35,7 +36,7 @@ workflows:
             - checkout_code
       - build_app
       # - rn/android_build:
-          # project_path: ./testapp/android
+          # project_path: ./testtools/android
           # build_type: release
           # requires:
             # - analyse_js
