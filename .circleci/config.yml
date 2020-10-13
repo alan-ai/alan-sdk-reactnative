@@ -1,13 +1,9 @@
 version: 2.1
 
 orbs:
- android: circleci/android@0.2.1
+  react-native: react-native-community/react-native@4.4.2
 
 jobs:
-  build:
-    executor: android/android
-        
-    steps:
-      - checkout
-      - run:
-          command: ./gradlew build
+  - rn/android_build:
+    project_path: ./testapp/android
+    build_type: debug
