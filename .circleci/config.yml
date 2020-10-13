@@ -20,6 +20,7 @@ jobs:
   build_app:
     executor: rn/linux_js
     steps:
+      - checkout
       - run:
           command: pwd
       - run:
@@ -34,13 +35,13 @@ orbs:
 workflows:
   test:
     jobs:
-      - checkout_code
-      - analyse_js:
-          requires:
-            - checkout_code
-      - build_app:
-          requires:
-            - analyse_js
+      # - checkout_code
+      # - analyse_js:
+          # requires:
+            # - checkout_code
+      - build_app
+          # requires:
+            # - analyse_js
       # - rn/android_build:
           # project_path: ./testtools/android
           # build_type: release
