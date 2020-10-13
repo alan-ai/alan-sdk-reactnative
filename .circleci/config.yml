@@ -21,6 +21,10 @@ jobs:
     executor: rn/linux_js
     steps:
       - run:
+          command: pwd
+      - run:
+          command: ls -al
+      - run:
           name: Build Android RN Sample App (from testtools)
           command: cd ./testtools/android && ./gradlew assembleDebug
 
