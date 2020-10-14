@@ -9,6 +9,9 @@ jobs:
       - checkout
       - run: pwd
       - run: ls -al
+      - run: cd AlanSampleApp
+      - run: pwd
+      - run: ls -al
 
       # - restore_cache:
           # key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
