@@ -1,0 +1,50 @@
+version: 2.1
+
+jobs:
+  analyse_js:
+    executor: rn/linux_js
+    steps:
+      - attach_workspace:
+          at: ./testtools
+      - run:
+          command: yarn install
+          working_directory: ./testtools
+
+  checkout_code:
+    executor: rn/linux_js
+    steps:
+      - checkout
+      - persist_to_workspace:
+          paths: .
+          root: .
+  build_app:
+    executor: rn/linux_android
+    steps:
+      - checkout
+      - run:
+          command: pwd
+      - run:
+          command: ls -al
+      - run:
+          name: Build Android RN Sample App (from testtools)
+          command: cd ./testtools/android && ./gradlew assembleDebug
+
+orbs:
+  rn: react-native-community/react-native@4.4.2
+  android: circleci/android@0.2.1
+
+workflows:
+  test:
+    jobs:
+      # - checkout_code
+      # - analyse_js:
+          # requires:
+            # - checkout_code
+      - build_app
+          # requires:
+            # - analyse_js
+      # - rn/android_build:
+          # project_path: ./testtools/android
+          # build_type: release
+          # requires:
+            # - analyse_js

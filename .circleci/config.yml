@@ -1,50 +1,77 @@
 version: 2.1
-
 jobs:
-  analyse_js:
-    executor: rn/linux_js
-    steps:
-      - attach_workspace:
-          at: ./testtools
-      - run:
-          command: yarn install
-          working_directory: ./testtools
+  node:
+    working_directory: ~/AlanSampleApp
+    docker:
+      - image: cimg/node:12.16
 
-  checkout_code:
-    executor: rn/linux_js
     steps:
       - checkout
+
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: yarn install
+
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - run:
+          name: jest tests
+          command: |
+            mkdir -p test-results/jest
+            yarn run test
+          environment:
+            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
+
       - persist_to_workspace:
-          paths: .
-          root: .
-  build_app:
-    executor: rn/linux_android
-    steps:
-      - checkout
-      - run:
-          command: pwd
-      - run:
-          command: ls -al
-      - run:
-          name: Build Android RN Sample App (from testtools)
-          command: cd ./testtools/android && ./gradlew assembleDebug
+          root: ~/AlanSampleApp
+          paths:
+            - node_modules
 
-orbs:
-  rn: react-native-community/react-native@4.4.2
-  android: circleci/android@0.2.1
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results
+            
+  android-build-and-test:
+    working_directory: ~/AlanSampleApp/android
+    docker:
+      - image: circleci/android:api-29-node
+    steps:
+      - checkout:
+          path: ~/AlanSampleApp
+
+      - attach_workspace:
+          at: ~/AlanSampleApp
+
+      - restore_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+
+      - run: bundle install
+
+      - save_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          paths:
+            - vendor/bundle
+
 
 workflows:
-  test:
+  node-android-ios:
     jobs:
-      # - checkout_code
-      # - analyse_js:
-          # requires:
-            # - checkout_code
-      - build_app
-          # requires:
-            # - analyse_js
-      # - rn/android_build:
-          # project_path: ./testtools/android
-          # build_type: release
-          # requires:
-            # - analyse_js
+      - node
+      - android-build-and-test:
+          requires:
+            - node
+            
