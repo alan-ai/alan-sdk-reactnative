@@ -8,11 +8,11 @@ jobs:
     steps:
       - checkout
 
-      - restore_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+      # - restore_cache:
+          # key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
 
-      - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+      # - restore_cache:
+          # key: node-v1-{{ checksum "package.json" }}-{{ arch }}
 
       - run: yarn install
 
@@ -56,8 +56,8 @@ jobs:
       - attach_workspace:
           at: ~/AlanSampleApp
 
-      - restore_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+      # - restore_cache:
+          # key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
 
       - run: bundle install
 
