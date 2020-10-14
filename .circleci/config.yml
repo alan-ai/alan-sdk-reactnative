@@ -1,15 +1,15 @@
 version: 2.1
 jobs:
+  checkout:
+    steps:
+      - checkout
+
   node:
-    working_directory: ~/AlanSampleApp
+    working_directory: ~/AlanSampleApp/AlanSampleApp
     docker:
       - image: cimg/node:12.16
 
     steps:
-      - checkout
-      - run: pwd
-      - run: ls -al
-      - run: cd AlanSampleApp
       - run: pwd
       - run: ls -al
 
@@ -51,15 +51,15 @@ jobs:
           path: test-results
             
   android-build-and-test:
-    working_directory: ~/AlanSampleApp/android
+    working_directory: ~/AlanSampleApp/AlanSampleApp/android
     docker:
       - image: circleci/android:api-29-node
     steps:
-      - checkout:
-          path: ~/AlanSampleApp
+      # - checkout:
+          # path: ~/AlanSampleApp
 
       - attach_workspace:
-          at: ~/AlanSampleApp
+          at: ~/AlanSampleApp/AlanSampleApp
 
       # - restore_cache:
           # key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
@@ -75,7 +75,10 @@ jobs:
 workflows:
   node-android-ios:
     jobs:
-      - node
+      - checkout
+      - node:
+          requires:
+            - checkout
       - android-build-and-test:
           requires:
             - node
