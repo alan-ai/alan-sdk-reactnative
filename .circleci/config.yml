@@ -74,13 +74,13 @@ jobs:
       - run:
           name: export path
           command: echo 'export PATH="$PATH:/usr/local/bin"' >> $BASH_ENV 
-      - run: 
+      - run:
           name: Install Dependencies npm
           command: cd examples/testapp && npm install
-      - run: 
+      - run:
           name: Install Dependencies cocoapods
           command: cd examples/testapp/ios && pod install     
-      - run: 
+      - run:
           name: React native build for iOS
           command: cd examples/testapp/ios && xcodebuild         
       - save_cache:
