@@ -65,7 +65,7 @@ jobs:
       - restore_cache:
           keys:
             - node-modules-cache
-      run:
+      - run:
           name: Fetch CocoaPods Specs
           command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh  | bash -s cf      
       - run:
