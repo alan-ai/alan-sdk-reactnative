@@ -40,14 +40,14 @@ jobs:
             - node-modules-cache
       - run:
           name: Install Dependencies npm
-          command: cd examples/testtools && npm install
+          command: cd examples/testapp && npm install
       - save_cache:
           key: node-modules-cache
           paths:
             - ./node_modules
       - run:
           name: Build android
-          command: cd examples/testtools && ./gradlew assembleDebug
+          command: cd examples/testapp && ./gradlew assembleDebug
 
 
   build_ios:
