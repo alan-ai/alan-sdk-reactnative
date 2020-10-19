@@ -39,6 +39,9 @@ jobs:
           keys:
             - node-modules-cache
       - run:
+          name: Install React native
+          command: sudo npm install -g react-native-cli
+      - run:
           name: Install Dependencies npm
           command: cd examples/testapp && npm install
       - save_cache:
