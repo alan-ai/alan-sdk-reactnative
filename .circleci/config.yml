@@ -38,10 +38,18 @@ jobs:
       - restore_cache:
           keys:
             - node-modules-cache
+      - run:
+          name: Install Dependencies npm
+          command: cd examples/testtools && npm install
       - save_cache:
           key: node-modules-cache
           paths:
             - ./node_modules
+      - run:
+          name: Build android
+          command: cd examples/testtools && ./gradlew assembleDebug
+
+
   build_ios:
     macos:
       xcode: 11.3.0
