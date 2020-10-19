@@ -47,7 +47,7 @@ jobs:
             - ./node_modules
       - run:
           name: Build android
-          command: cd examples/testapp && ./gradlew assembleDebug
+          command: cd examples/testapp/android && ./gradlew assembleDebug
 
 
   build_ios:
