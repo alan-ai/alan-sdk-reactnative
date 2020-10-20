@@ -10,6 +10,7 @@ jobs:
   build_android:
     docker:
       - image: circleci/android:api-28-node
+    resource_class: xlarge
     steps:
       - checkout
       - run: sudo mkdir /opt/gradle
