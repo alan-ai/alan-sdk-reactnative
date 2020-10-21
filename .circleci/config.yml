@@ -1,85 +1,108 @@
+# For a detailed guide to building and testing on iOS, read the docs:
+# https://circleci.com/docs/2.0/testing-ios/
+
 version: 2.1
+
+orbs:
+  node: circleci/node@4.1.0
+
 jobs:
-  checkout:
+  build_android:
+    docker:
+      - image: circleci/android:api-28-node
+    resource_class: xlarge
     steps:
       - checkout
-
-  node:
-    working_directory: ~/AlanSampleApp/AlanSampleApp
-    docker:
-      - image: cimg/node:12.16
-
-    steps:
-      - run: pwd
-      - run: ls -al
-
-      # - restore_cache:
-          # key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-
-      # - restore_cache:
-          # key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-
-      - run: yarn install
-
-      - save_cache:
-          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
-          paths:
-            - ~/.cache/yarn
-
-      - save_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-          paths:
-            - node_modules
-
+      - run: sudo mkdir /opt/gradle
+      - run: sudo wget https://services.gradle.org/distributions/gradle-6.7-bin.zip
+      - run: sudo unzip -d /opt/gradle gradle-6.7-bin.zip
+      - run: echo 'export export PATH=$PATH:/opt/gradle/gradle-6.7/bin:$PATH' >> $BASH_ENV
+      - run: gradle -v
       - run:
-          name: jest tests
+          name: Installing JDK 1.8 required for Cordova support
           command: |
-            mkdir -p test-results/jest
-            yarn run test
-          environment:
-            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
-
-      - persist_to_workspace:
-          root: ~/AlanSampleApp
-          paths:
-            - node_modules
-
-      - store_test_results:
-          path: test-results
-
-      - store_artifacts:
-          path: test-results
-            
-  android-build-and-test:
-    working_directory: ~/AlanSampleApp/AlanSampleApp/android
-    docker:
-      - image: circleci/android:api-29-node
-    steps:
-      # - checkout:
-          # path: ~/AlanSampleApp
-
-      - attach_workspace:
-          at: ~/AlanSampleApp/AlanSampleApp
-
-      # - restore_cache:
-          # key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
-
-      - run: bundle install
-
+            sudo apt update
+            sudo apt install software-properties-common
+            sudo apt update
+            wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+            sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+            sudo apt update
+            sudo apt install adoptopenjdk-8-hotspot
+            echo 'export PATH=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/bin:$PATH' >> $BASH_ENV
+            echo 'export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64' >> $BASH_ENV
+            source $BASH_ENV
+      - run:
+          name: Setup PATH variables
+          command: |
+            export PATH=$ANDROID_HOME/platform-tools:$PATH
+            export PATH=$ANDROID_HOME/tools:$PATH
+      - restore_cache:
+          keys:
+            - node-modules-cache
+      - run:
+          name: Install React native
+          command: sudo npm install -g react-native-cli
+      - run:
+          name: Install Dependencies npm
+          command: cd examples/testapp && npm install
       - save_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          key: node-modules-cache
           paths:
-            - vendor/bundle
+            - ./node_modules
+      - run:
+          name: Build android
+          command: cd examples/testapp/android && ./gradlew assembleDebug
 
 
-workflows:
-  node-android-ios:
-    jobs:
+  build_ios:
+    macos:
+      xcode: 11.3.0
+    steps:
       - checkout
-      - node:
-          requires:
-            - checkout
-      - android-build-and-test:
-          requires:
-            - node
+      - node/install:
+         install-yarn: true
+         install-npm: true
+         node-version: 10.22.0
+      - run: node --version
+      - run:
+          name: decode Certificates
+          command: base64 -D -o Certificates.p12 \<<< $Certificates
+      - run:
+          name: make Provisioning Profiles directory
+          command: mkdir -pv ~/Library/MobileDevice/Provisioning\ Profiles/
+      - run:
+          name: decode Provisioning Profiles
+          command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/App_Store.mobileprovision \<<< $App_Store_Profile
+      - run: bundle exec fastlane clean
+      - restore_cache:
+          keys:
+            - node-modules-cache
+      - run:
+          name: Fetch CocoaPods Specs
+          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh  | bash -s cf
+      - run:
+          name: Install React native
+          command: sudo npm install -g react-native-cli
+      - run:
+          name: export path
+          command: echo 'export PATH="$PATH:/usr/local/bin"' >> $BASH_ENV
+      - run:
+          name: Install Dependencies npm
+          command: cd examples/testapp && npm install
+      - run:
+          name: Install Dependencies cocoapods
+          command: cd examples/testapp/ios && pod install
+      - run:
+          name: React native build for iOS Release
+          command: cd examples/testapp/ios && xcodebuild -workspace "testtools.xcworkspace" -scheme "testtools" -configuration Release
+      - save_cache:
+          key: node-modules-cache
+          paths:
+            - ./node_modules
             
+workflows:
+  version: 2.1
+  build-android-and-ios:
+    jobs:
+      - build_android
+      - build_ios
