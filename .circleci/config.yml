@@ -61,7 +61,7 @@ jobs:
       - checkout
       - node/install:
          install-npm: true
-         node-version: 10.22.0
+         node-version: 14.18.1
       - run: node --version
       - run:
           name: Install yarn
