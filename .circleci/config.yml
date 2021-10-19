@@ -80,8 +80,8 @@ jobs:
           keys:
             - node-modules-cache
       - run:
-          name: Fetch CocoaPods Specs
-          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh  | bash -s cf
+          name: Install cocoapods
+          command: sudo gem install cocoapods
       - run:
           name: Install React native
           command: sudo npm install -g react-native-cli
