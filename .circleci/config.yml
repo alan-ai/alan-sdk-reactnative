@@ -60,9 +60,11 @@ jobs:
     steps:
       - checkout
       - node/install:
-         install-npm: true
-         node-version: 14.18.1
+          node-version: 10.22.0
       - run: node --version
+      - run:
+          name: Install npm
+          command: npm install -g npm@6.14.6
       - run:
           name: Install yarn
           command: npm install --global yarn
