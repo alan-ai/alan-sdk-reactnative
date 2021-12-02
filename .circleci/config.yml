@@ -75,9 +75,6 @@ jobs:
           name: decode Provisioning Profiles
           command: base64 -D -o ~/Library/MobileDevice/Provisioning\ Profiles/App_Store.mobileprovision \<<< $App_Store_Profile
       - run: bundle exec fastlane clean
-      - restore_cache:
-          keys:
-            - node-modules-cache
       - run:
           name: Install cocoapods
           command: sudo gem install cocoapods
@@ -96,10 +93,6 @@ jobs:
       - run:
           name: React native build for iOS Release
           command: cd examples/testapp/ios && xcodebuild -workspace "testtools.xcworkspace" -scheme "testtools" -configuration Release
-      - save_cache:
-          key: node-modules-cache
-          paths:
-            - ./node_modules
             
 workflows:
   version: 2.1
