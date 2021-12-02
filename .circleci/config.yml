@@ -4,7 +4,7 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.1.0
+  node: circleci/node@4.7.0
 
 jobs:
   build_android:
@@ -60,12 +60,8 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: 10.22.0
-      - run: node --version
-      - run:
-          name: Install npm
-          command: npm install -g npm@6.14.6
-      - run: npm --version    
+          node-version: 16.13.0
+      - run: node --version   
       - run:
           name: Install yarn
           command: npm install --global yarn
